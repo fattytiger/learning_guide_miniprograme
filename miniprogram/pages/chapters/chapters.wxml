@@ -1,0 +1,59 @@
+<!--miniprogram/pages/chapters/chapters.wxml-->
+<view class='title'>
+  <view class='icon'>
+    <image src='../../images/logo.jpg'></image>
+  </view>
+  <view class='desc'>
+    <view class='desc_title'>
+      <text>微信小程序</text>
+    </view>
+    <view class='desc_content'>
+      <text>miniprogram</text>
+    </view>
+  </view>
+</view>
+<!-- <block wx:for="{{sections}}" wx:key="{{index}}">
+  <view class='section_title'>
+    <text>{{item.name}}</text>
+  </view>
+  <block wx:for="{{item.chapters}}" wx:key="{{index}}">
+    <view class='skill'>
+      <view class='item'>
+        <view class='name'>
+          <view class='name_title'>{{item.chapter_name}}</view>
+          <view class="btn_into">
+            <button type='primary' size='mini' bindtap='learn' data-num="{{item.chapter_id}}" data-nav_id="1">{{study_flag}}</button>
+          </view>
+        </view>
+        <view class='gress'>
+          <view class='gress_num'>
+            <text>完成：{{progress[index]}}%</text>
+          </view>
+          <view class='gress_pic'>
+            <progress percent='{{progress[index]}}' border-radius='20rpx' stroke-width='30rpx'></progress>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</block> -->
+ <block wx:for="{{chapters}}" wx:key="{{index}}">
+    <view class='skill'>
+      <view class='item'>
+        <view class='name'>
+          <view class='name_title'>{{item.chapter_name}}</view>
+          <view class="btn_into">
+            <button type='primary' size='mini' bindtap='learn' data-num="{{item.chapter_id}}" data-nav_id="1">{{study_flag}}</button>
+          </view>
+        </view>
+        <view class='gress'>
+          <view class='gress_num'>
+            <text>完成：{{progress[index]>=100?100:progress[index]}}%</text>
+          </view>
+          <view class='gress_pic'>
+            <progress percent='{{progress[index]}}' border-radius='20rpx' stroke-width='30rpx'></progress>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>

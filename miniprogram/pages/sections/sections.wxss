@@ -1,0 +1,14 @@
+.head{margin: 10rpx 50rpx ;background: 	#ccc;border-radius: 10rpx;display: flex;flex-direction: column;}
+.head::after{display: block;content: "";height: 1rpx}
+.head>.head_title{margin: 20rpx 20rpx;height:100rpx;background: #fff; text-align: center;border-radius: 20rpx;}
+.head>.head_title text{ line-height: 100rpx;}
+.head>.target{margin: 10rpx 20rpx  ;height: 50rpx;line-height: 50rpx;font-size: 25rpx;text-align: center;}
+.head>.target_item{margin: 10rpx 20rpx  ;height: 50rpx;line-height: 50rpx;font-size: 25rpx;text-align: left;text-indent: 2em;color: #fff}
+.section{margin: 20rpx 50rpx;background: 	#ccc;border-radius: 10rpx;display: flex;flex-direction: row;height: 150rpx;}
+.section>.section_name{margin: 35rpx 20rpx;height: 80rpx;line-height: 80rpx;font-size: 30rpx;width: 420rpx;color: #fff;text-indent: 2em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.section>.section_option_learn{margin: 35rpx 0 10rpx 20rpx;display: block;height: 80rpx;width: 160rpx;line-height: 80rpx;font-size: 30rpx;background: orange;}
+.section>.section_option_learnd{margin: 35rpx 0 10rpx 20rpx;display: block;height: 80rpx;width: 160rpx;line-height: 80rpx;font-size: 30rpx;background: greenyellow;}
+
+
+.mini_section{margin: 20rpx 100rpx;background: #b22222;border-radius: 10rpx;display: flex;flex-direction: row;height: 150rpx;}
+.mini_section>.mini_section_name{margin: 35rpx 20rpx;height: 80rpx;line-height: 80rpx;font-size: 30rpx;width: 420rpx;color: #fff;text-indent: 2em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}

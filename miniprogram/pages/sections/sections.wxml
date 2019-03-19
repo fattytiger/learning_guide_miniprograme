@@ -1,0 +1,29 @@
+<view class='head'>
+  <view class='head_title'>
+    <text>{{chapter_name}}</text>
+  </view>
+  <view class='target'>
+    <text>本章目标</text>
+  </view>
+  <view wx:for="{{target}}" wx:key="{{index}}" class='target_item'>
+    <text>{{item}}</text>
+  </view>
+</view>
+<block wx:for="{{sections}}" wx:key="{{index}}">
+  <view class='section'>
+    <view class='section_name'>
+      <text>{{item.section_name}}</text>
+    </view>
+    <button class='section_option_learn' bindtap='learn_article'>learn</button>
+  </view>
+
+  <block wx:for="{{mini_section[index]}}" wx:key="{{index}}">
+    <view class='mini_section' bindtap='into_mini_section' data-num="{{item.mini_section_id}}" data-tem="{{item.mini_template}}">
+      <view class='mini_section_name'>
+        <text>{{item.mini_section_name}}</text>
+      </view>
+    </view>
+  </block>
+
+
+</block>

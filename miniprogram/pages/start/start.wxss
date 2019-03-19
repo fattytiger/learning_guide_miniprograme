@@ -1,0 +1,18 @@
+page {
+  line-height: 1.6;
+  font-family: -apple-system-font, Helvetica Neue, sans-serif;
+  background: #ccc
+}
+.icon{
+  margin:30% 10rpx 0; 
+  text-align: center
+}
+.icon image{
+  width: 500rpx;
+  height: 250rpx;
+}
+.button-sp-area{
+    margin: 100rpx auto;
+    padding-top: 15px;
+    width: 60%;
+}
