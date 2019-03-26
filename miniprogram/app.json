@@ -10,13 +10,35 @@
     "pages/chooseLib/chooseLib",
     "pages/chapters/chapters",
     "pages/sections/sections",
-    "pages/articals/articals"
+    "pages/articals/articals",
+    "pages/user_achievement/user_achievement",
+    "pages/test/test"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "微信小程序学习指南",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#000",
+    "backgroundColor": "#f9e5da",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/chapters/chapters",
+        "text": "chpaters",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_select.png"
+      },
+      {
+        "pagePath": "pages/user_achievement/user_achievement",
+        "text": "achievement",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine_select.png"
+      }
+    ]
   }
 }

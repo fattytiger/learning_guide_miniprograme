@@ -1,0 +1,9 @@
+var scroll = function(e,instance){
+  var dataset = e.instance.getDataset();
+  var st = e.instance.getState()
+  var current = st.current || 0
+  console.log(dataset)
+}
+module.exports= {
+  scroll:scroll
+}

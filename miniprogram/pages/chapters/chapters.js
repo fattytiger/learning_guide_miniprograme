@@ -1,8 +1,9 @@
 // miniprogram/pages/chapters/chapters.js
+import animation from '../../utils/animation.js'
 const db = wx.cloud.database()
 const app = getApp()
 Page({
-
+  ...animation.show_animation,
   /**
    * 页面的初始数据
    */
@@ -13,7 +14,10 @@ Page({
     chapter_pro: {},
     study_flag: 'learn',
     target_id: '',
-    progress: []
+    progress: [],
+    status:0,
+    scroll_top:0,
+    propValue:true,
   },
   learn: function(e) {
     this.setData({
@@ -23,7 +27,13 @@ Page({
       url: '../sections/sections?chapter_id=' + this.data.target_id + ''
     })
   },
-
+  scroll:function(e){
+   if(e.detail.deltaY<0){
+     this.setData({
+       propValue:false
+     })
+   }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,13 +60,6 @@ Page({
         })
       }
     })
-
-  
-
-
-
-
-
 
     //判断用户是否初次使用
     db.collection('counters').get({
@@ -87,32 +90,10 @@ Page({
         }
       }
     })
-
-    
-
-
-
-
-
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-
-
-  },
-
-  //对象转换成数组
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
-
-    
+    //渲染进度条
     db.collection('counters').where({
       _openid: this.data.open_id
     }).get({
@@ -137,25 +118,14 @@ Page({
         })
       }
     })
+    setTimeout(function () {
+      this.banner_animation(this,'top_in',200)
+    }.bind(this), 100)
+    setTimeout(function(){
+      this.template_animation(this,'chapter_in',-60)
+    }.bind(this),100)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  
   onPullDownRefresh: function() {
     db.collection('counters').where({
       _openid: this.data.open_id
@@ -182,17 +152,6 @@ Page({
       }
     })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function() {
 
   }

@@ -1,7 +1,8 @@
 // miniprogram/pages/start/start.js
 const app = getApp();
+import animation from '../../utils/animation.js'
 Page({
-
+  ...animation.start_animation,
   /**
    * 页面的初始数据
    */
@@ -35,6 +36,7 @@ Page({
   //获取用户信息，绑定在app.js中
   onGetUserInfo:function(e){
     if(e.detail.userInfo){
+      console.log(e.detail.userInfo)
       this.setData({
         userInfo:e.detail.userInfo
       })
@@ -44,58 +46,28 @@ Page({
       data:{},
       success:res => {
         app.globalData.openid = res.result.openid;
-        wx.redirectTo({
-          url: '../chapters/chapters',
+        app.globalData.userInfo = e.detail.userInfo;
+        wx.switchTab({
+          url: '/pages/chapters/chapters',
         })
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    setTimeout(function(){
+      this.bg_show(this,'mount_right',-375)
+    }.bind(this),200)
+    setTimeout(function(){
+      this.bg_show(this,'mount_left',375)
+    }.bind(this),500)
+    setTimeout(function(){
+      this.person_show(this,'mount_person',667)
+    }.bind(this),800)
+    setTimeout(function(){
+      this.bg_show(this,'mount_btn',140)
+    }.bind(this),1000)
   }
+
 })

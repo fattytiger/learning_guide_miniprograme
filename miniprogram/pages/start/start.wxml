@@ -1,7 +1,6 @@
-<!--miniprogram/pages/start/start.wxml-->
-<view class='icon'>
-  <image src='{{image_src}}'></image>
-</view>
-<view class='button-sp-area'>
-  <button class='weui-btn' type='primary' plain='true' bindtap='start' bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'>never stop</button>
+<view class='page'>
+  <image animation="{{mount_right}}" class='start_mount_01' src='../../images/start_bg2.png'></image>
+  <image animation="{{mount_left}}" class='start_mount_02' src='../../images/start_bg3.png'></image>
+  <image class='start_person' animation="{{mount_person}}" src='../../images/start_person.png'></image>
+  <button class='start_btn' animation="{{mount_btn}}" bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'></button>
 </view>
