@@ -1,17 +1,18 @@
-.page_top{height: 400rpx;width: 750rpx;position: relative;background: #e4c6d0}
+.page_top{height: 400rpx;width: 750rpx;position: relative;background: #e96060}
 .page_top>.user_icon{position: absolute;left: 50rpx;top: 50rpx;height: 150rpx;width: 150rpx}
 .page_top>.user_icon image{height:150rpx;width: 150rpx;border-radius: 50%}
-.page_top>.user_name{position: absolute;left: 50rpx;top: 250rpx;height: 50rpx;width: 150rpx;line-height: 50rpx;text-align: center;font-size: 30rpx;}
+.page_top>.user_name{position: absolute;left: 50rpx;top: 250rpx;height: 50rpx;width: 150rpx;line-height: 50rpx;text-align: center;font-size: 30rpx;color: #fff;}
 .page_top>.user_get{position: absolute;height: 300rpx;width: 450rpx;left: 250rpx;top: 50rpx;background: #4c8dae;z-index: 1;border-radius: 20rpx;}
 .page_top>.user_get>.font{height: 50rpx;width:80rpx;font-size: 25rpx;position: absolute;left: 50rpx;top: 50rpx; line-height: 50rpx;color: #fff}
 .page_top>.user_get>.progress_warper{height: 60rpx;width: 280rpx;position: absolute;top: 50rpx;left: 150rpx;}
 .page_top>.user_get>.progress_warper progress{margin-top: 18rpx;}
 .page_top>.user_get>.chievement_icon{position: absolute;height: 150rpx;width: 150rpx;left: 200rpx;top: 125rpx;}
 .page_top>.user_get>.chievement_icon image{height: 150rpx;width: 150rpx}
-.page_top>.user_get>.font_two{height: 50rpx;width:100rpx;font-size: 25rpx;position: absolute;left: 50rpx;top: 150rpx; line-height: 50rpx;color: #fff}
-.page_mid{height: 400rpx;background: #bfa;margin-top: 50rpx;}
+.page_top>.user_get>.font_two{height: 100rpx;width:100rpx;font-size: 25rpx;position: absolute;left: 50rpx;top: 150rpx; line-height: 50rpx;color: #fff;}
+.page_top>.user_get>.font_two text{display: inline-block;line-height: 40rpx;}
+.page_top>.user_get>.font_two text:nth-of-type(2){color: #f00}
+.page_mid{height: 400rpx;background: #9ae9b2;margin-top: 50rpx;}
 .page_mid>.collection{height: 200rpx;width: 750rpx;display: flex;flex-direction: row}
-.page_mid>.collection>.icon{height:80rpx;width:80rpx;background: #fff;margin-top: 10rpx;margin-left: 20rpx;}
-.page_mid>.collection>.font{height:80rpx;width: 600rpx;line-height: 80rpx;border-bottom: 1rpx solid #000;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;text-indent: 2em}
-
+.page_mid>.collection>.detail{height:80rpx;width: 600rpx;border-bottom: 1rpx solid #fff;color:#fff ;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;display: flex;flex-direction: row;text-indent: 2em}
+.page_mid>.collection>.detail>.font{height: 80rpx;width: 500rpx;line-height: 80rpx;}
 

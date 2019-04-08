@@ -1,23 +1,44 @@
 /* miniprogram/pages/articals/articals.wxss */
-.page{margin: 20rpx;}
-.first_page{margin: 30rpx;}
+.page{margin:0;}
+.first_page{margin: 20rpx;}
 .first_page::before{content: "";display: block;height: 1rpx}
-.first_page>.title{margin:9rpx 0 20rpx 10rpx;font-size: 36rpx;font-weight: bold;text-align: left;background:#b0c4d1;padding: 20rpx;}
-.first_page>.container{background: #ccc;padding: 10rpx;border-radius: 10rpx}
-.first_page>.container .content{margin: 10rpx;line-height: 30rpx;font-size:25rpx;text-align: left;text-indent: 1em; background: #ccc}
-.first_page>.container image{margin: 10rpx;height:140px;width:240px }
-.page>button{margin: 20rpx;}
+.first_page>.title{margin:10rpx 0;height: 100rpx;width: 100%;position: relative;display: flex;flex-direction: row}
+.first_page>.title >.font{width: 550rpx;height: 100rpx;line-height:100rpx;font-size: 30rpx;text-indent: 4em;color: #fff}
+.first_page>.title>.collect{width:100rpx;height:100rpx;position: relative;}
+.first_page>.title>.collected{width:100rpx;height:100rpx;position: relative;}
+
+.first_page>.container{margin: 10rpx auto;width: 100%;}
+.first_page>.container>.content{width: 100%;}
+.first_page>.container>.content>.font{padding: 5rpx; line-height: 30rpx;font-size:25rpx;text-align: left;text-indent: 1em;width: 100%;}
+.first_page>.container>.content image{margin: 10rpx;height:140px;width:240px }
+
+.page>.read{margin: 10rpx auto;width:100%;height: 100rpx;}
+.page>.read>.readed{width:600rpx;height: 100rpx;margin: 0 auto;background: #2c9f67;border-radius: 50rpx;line-height: 100rpx;font-size: 40rpx;text-align: center;color: #fff}
+.page>.read>.no_read{width:600rpx;height: 100rpx;margin: 0 auto;background: #f1932a;border-radius: 50rpx;line-height: 100rpx;font-size: 40rpx;text-align: center;color: #fff}
 
 
 
 
 /*第二个模板  */
-/* 描述 */
+/* title */
+.second_page{margin: 20rpx;}
 .second_page::before{content: "";display: block;height: 1rpx}
-.second_page>.desc{margin-top: 9rpx;font-size: 30rpx;line-height: 40rpx}
+.second_page>.title{margin:10rpx 0;height: 100rpx;width: 100%;position: relative;display: flex;flex-direction: row}
+.second_page>.title>.font{width: 550rpx;height: 100rpx;line-height:100rpx;font-size: 30rpx;text-indent: 4em;color: #fff}
+.second_page>.title>.collected{width:100rpx;height:100rpx;position: relative;}
+.second_page>.title>.collect{width:100rpx;height:100rpx;position: relative;}
+
+/* 描述 */
+/* .second_page::before{content: "";display: block;height: 1rpx}
+.second_page>.desc{margin-top: 9rpx;font-size: 30rpx;line-height: 40rpx} */
 /* 主体 */
-.second_page>.container_two{margin: 10rpx}
-.second_page>.container_two>.content_two{line-height: 40rpx;font-size: 30rpx}
+.second_page>.container_two{margin: 10rpx auto;width: 100%;}
+.second_page>.container_two>.content_two{width: 100%;}
+.second_page>.container_two>.content_two>.font{padding: 5rpx; line-height: 30rpx;font-size:25rpx;text-align: left;text-indent: 1em;width: 100%;}
+.second_page>.container_two>.content_two image{margin: 10rpx;height:140px;width:240px }
+.second_page>.read>.readed{width:600rpx;height: 100rpx;margin: 0 auto;background: #2c9f67;border-radius: 50rpx;line-height: 100rpx;font-size: 40rpx;text-align: center;color: #fff}
+.second_page>.read>.no_read{width:600rpx;height: 100rpx;margin: 0 auto;background: #f1932a;border-radius: 50rpx;line-height: 100rpx;font-size: 40rpx;text-align: center;color: #fff}
+
 /* 表二 */
 .second_page .table_02{border: 1rpx solid black;}
 .second_page .table_02>.tr{ display: flex;flex-direction: row;text-align: center;}

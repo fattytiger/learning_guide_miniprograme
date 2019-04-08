@@ -1,1 +1,5 @@
-/* miniprogram/pages/test/test.wxss */
+#warper{position: absolute;left: 0;right: 0; width: 300rpx;height: 300rpx; bottom: 0;top: 0;margin: auto;background: #ccc;border: 1rpx solid #000;perspective: 200rpx;transform-style: preserve-3d}
+#warper>.box{position: absolute;left: 0rpx;top:0rpx;right: 0;bottom: 0;width: 100rpx;height: 100rpx;margin: auto;background:deeppink;text-align: center;line-height: 100rpx;transform-style: preserve-3d}
+#warper>.box view{width: 100rpx;height: 100rpx;position: absolute;background: pink;}
+#warper>.box view:nth-child(1){top: -50rpx;transform-origin: bottom;transform: rotateX(-90deg)}
+

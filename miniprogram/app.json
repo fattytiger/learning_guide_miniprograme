@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/start/start",
+    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -12,7 +12,8 @@
     "pages/sections/sections",
     "pages/articals/articals",
     "pages/user_achievement/user_achievement",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/collections/collections"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

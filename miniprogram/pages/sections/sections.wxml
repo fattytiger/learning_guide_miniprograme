@@ -1,14 +1,17 @@
 <view class='page_top' animation="{{page_top}}">
-  <view animation="{{banner}}" class='banner'>
-    <view animation="{{banner_title}}" class='banner_title'>
-      <text>{{chapter_name}}</text>
+  <view animation="{{banner}}" style='width: 650rpx;height: 450rpx;position: absolute;top: {{-(systemInfo.windowHeight*(400/1334))}}px;left: 50rpx;z-index: 1;background:  #e96060;border-radius: 20rpx;'>
+    <view animation="{{banner_title}}" style='width: 600rpx;height: 80rpx;position: absolute;top:25rpx;left:{{-systemInfo.windowWidth*(625/750)}}px;z-index: 2;text-indent:2em;font-size: 30rpx;'>
+      <image src='../../images/chapter_name.png' style='height:80rpx;width:600rpx;position:absolute;left:0;top:0'></image>
+      <view style="height:80rpx;width:600rpx;position:absolute;left:0;top:0;line-height:90rpx;">
+        <text>{{chapter_name}}</text>
+      </view>
     </view>
-    <view animation="{{target}}" class='target'>
-      <view class='target_title'>
+    <view animation="{{target}}" style='width: 600rpx;height: 300rpx; position: absolute;top: 130rpx;left:{{systemInfo.windowWidth*(625/750)}}px;z-index: 2;color:#fff'>
+      <view style='position: absolute;left: 5rpx;top:10rpx;line-height: 50rpx;font-size: 30rpx;'>
         <text>本章目标</text>
       </view>
-      <scroll-view class='target_item' scroll-y='true'>
-        <view wx:for="{{target}}" wx:key="{{index}}" class='item'>
+      <scroll-view style='position: absolute;left: 5rpx;top: 70rpx;height: 200rpx; width: 590rpx;border-radius: 20rpx;overflow: hidden' scroll-y='true'>
+        <view wx:for="{{target}}" wx:key="{{index}}" style='line-height: 40rpx;font-size: 25rpx;text-indent: 2em;'>
           <text>{{item}}</text>
         </view>
       </scroll-view>
@@ -17,19 +20,36 @@
 </view>
 <view class='page_mid' animation="{{page_mid}}">
   <block wx:for="{{sections}}" wx:key="{{item.section_name}}" wx:for-index='section_index'>
-    <view class='section' animation="{{section_animation}}">
-      <view class='section_title'>
-        <text>{{item.section_name}}</text>
+    <view class='section_warper'>
+      <image src='{{bookimage[section_index]}}' style='width:100%;height:150rpx;position:absolute;left:0;top:0rpx;z-index:-1'></image>
+      <view class='section'>
+        <view class='section_title'>
+          <text>{{item.section_name}}</text>
+        </view>
+        <view animation="{{icon_rotate}}" wx:if="{{button_arr[section_index]==1}}" style='width:70rpx;height:70rpx;margin-top: 8rpx; border-radius: 10rpx; margin-left: 20rpx;line-height: 60rpx;' bindtap='show_mini_section' data-num="{{section_index}}">
+          <image src='../../images/section_icon.png' style='height:70rpx;width:70rpx'></image>
+        </view>
+        <view wx:if="{{button_arr[section_index]==0}}" style='width:70rpx;height:70rpx;margin-top: 8rpx; border-radius: 10rpx; margin-left: 20rpx;line-height: 60rpx;' bindtap='show_mini_section' data-num="{{section_index}}">
+          <image src='../../images/section_icon_reverse.png' style='height:70rpx;width:70rpx'></image>
+        </view>
       </view>
-      <button class='section_option' bindtap='show_mini_section' data-num="{{section_index}}"></button>
     </view>
-    <view class='section_hide' animation="{{mini_section_animation}}">
+    <view class='section_hide'>
       <block wx:for="{{mini_section[section_index]}}" wx:key="{{item.mini_section_name}}" wx:for-index='mini_section_index'>
-        <view  wx:if="{{show[section_index][mini_section_index]==true}}" class='mini_section'  bindtap='into_mini_section' data-num="{{item.mini_section_id}}" data-tem="{{item.mini_template}}">
-          <text>{{item.mini_section_name}}</text>
+        <view class='hide_warper' wx:if="{{show[section_index][mini_section_index]==true}}" bindtap='into_mini_section'  data-tem="{{item.mini_template}}" data-num="{{item.mini_section_id}}">
+          <image src='{{mini_section[section_index].length>3?shuqian_image[0]:shuqian_image[1]}}' style='width:650rpx;height:150rpx;position:absolute;left:0;top:0;z-index:-1'></image>
+          <view  class='mini_section'  >
+          <view class='mini_section_name'>
+            <text>{{item.mini_section_name}}</text>
+          </view>
+          <view style='height:70rpx;width:70rpx;background-size:70rpx 70rpx;margin-top:5rpx'>
+            <image src='../../images/into_section.png' style='height:70rpx;width:70rpx'></image>
+          </view>
+        </view>
         </view>
       </block>
     </view>
+
   </block>
 
 

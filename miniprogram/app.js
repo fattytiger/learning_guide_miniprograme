@@ -1,7 +1,13 @@
+
 //app.js
 App({
-  onLaunch: function () {
-    
+  onLaunch: function() {
+    //全局数据
+    this.globalData = {
+      openid: '',
+      userInfo: {},
+      systemInfo:{}
+    }
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -10,6 +16,13 @@ App({
       })
     }
 
-    this.globalData = {}
+    wx.getSystemInfo({
+      success: res => {
+        console.log(res)
+        this.globalData.systemInfo = res
+      },
+    })
+
+
   }
 })

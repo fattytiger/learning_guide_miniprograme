@@ -10,20 +10,68 @@ Page({
    */
   data: {
     template: "",
-    page_data: '',
+    page_data: {},
     flag: false,
+    collection_flag:false,
+    collection_text:'收藏',
     open_id: '',
     chapter_id: '',
     mini_section_id: '',
-    flag_text:'阅读'
+    flag_text: '阅读',
+    image_src:[],
+    image_flag:[]
+  },
+  //图片预览功能
+  preview_image:function(e){
+    let index = e.currentTarget.dataset.image_index
+    console.log(e.currentTarget.dataset.image_index)
+    wx.previewImage({
+      urls: [this.data.image_src[index]],
+      success:res => {
+        console.log('yes')
+      }
+    })
   },
 
 
+  //收藏功能
+  collection: function() {
+    if (this.data.collection_flag == true) {
+      wx.showToast({
+        title: '收藏过了',
+        duration: 2000
+      })
+    }
+   if(this.data.collection_flag==false){
+     wx.cloud.callFunction({
+       name:'collections_add',
+       data:{
+         open_id: this.data.open_id,
+         mini_section_id: this.data.mini_section_id,
+         mini_section_name: this.data.page_data.mini_section_name,
+         template: this.data.template,
+         chapter_id: this.data.chapter_id,
+         delete_flag: false
+       },success:res => {
+           console.log(res)
+           this.setData({
+             collection_flag: true,
+             collection_text: '已收藏',
+           })
+           wx.showToast({
+             title: '已收藏',
+             icon: 'success',
+             duration: 2000
+           })
+       },fail:err => {
+         console.log(err)
+       }
+     })
+   }
+  },
+
 
   read: function() {
-
-    console.log(this.data.flag)
-
     //如果没阅读就往数据库中写入数据，如果阅读过就返回
     if (this.data.flag == false) {
       wx.cloud.callFunction({
@@ -33,6 +81,7 @@ Page({
           chapter_id: this.data.chapter_id
         },
         success: res => {
+          console.log(res)
           wx.cloud.callFunction({
             name: 'update_section',
             data: {
@@ -41,8 +90,13 @@ Page({
             },
             success: res => {
               this.setData({
-                flag:true,
-                flag_text:'已阅读'
+                flag: true,
+                flag_text: '已阅读'
+              })
+              wx.showToast({
+                title: '已阅读',
+                icon: 'success',
+                duration: 2000
               })
             },
             fail: err => {
@@ -54,9 +108,11 @@ Page({
           console.log(err)
         }
       })
-    } else {
-      wx.navigateBack({
-        delta:2
+    } 
+    if (this.data.flag == true) {
+      wx.showToast({
+        title: '读过了',
+        duration: 2000
       })
     }
 
@@ -74,6 +130,7 @@ Page({
       open_id: app.globalData.openid,
       chapter_id: options.chapter_id,
       mini_section_id: mini_section_id
+
     })
     console.log(app.globalData.openid)
     db.collection('artical').where({
@@ -81,8 +138,21 @@ Page({
     }).get({
       success: res => {
         console.log(res.data[0])
+        let image_src = new Array()
+        let image_flag = new Array()
+        for (let i = 0; i < res.data[0].data.content.length; i++) {
+          if (res.data[0].data.content[i].image) {
+            image_src[i] = res.data[0].data.content[i].image
+            image_flag[i] = i
+          } else {
+            image_src[i] = 'no'
+            image_flag[i] = 'no'
+          }
+        }
         this.setData({
-          page_data: res.data[0]
+          page_data: res.data[0],
+          image_src:image_src,
+          image_flag:image_flag
         })
       }
     })
@@ -99,62 +169,35 @@ Page({
             console.log(section_arr[i])
             this.setData({
               flag: true,
-              flag_text:'已阅读'
+              flag_text: '已阅读'
             })
             break
           }
         }
       }
     })
-    
+    db.collection('user_collections').where({
+      _openid:this.data.open_id
+    }).where({
+      mini_section_id: options.mini_section_id
+    }).get({
+      success:res=>{
+        if(res.data.length==0){
+          this.setData({
+            collection_flag:false
+          })
+        }else{
+          this.setData({
+            collection_flag:true
+          })
+        }
+      }
+    })
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function() {
 
   }

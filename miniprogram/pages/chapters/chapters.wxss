@@ -1,11 +1,29 @@
-.page_top{width: 750rpx;background: #f9e5da;height: 400rpx;position: relative}
-.page_top>.banner{width: 650rpx;height: 400rpx;position: absolute;top: -350rpx;left: 50rpx;z-index: 1;background: #b5afbc;border-radius: 20rpx;}
+.page_top{width:100%;background: #e96060;height: 400rpx;position: relative;}
 
+/* 搜索 */
 .page_mid{padding-bottom: 50rpx;position: relative;}
-.page_mid>.chapters{height: 500rpx;width: 700rpx;background: #bfc;overflow: hidden;position: absolute;left: 25rpx;top: 200rpx;border-radius: 20rpx;}
-.page_mid>.chapters .item{height:200rpx;width: 650rpx; background: #fff;position: relative; margin-top: 35rpx;margin-bottom: 25rpx; margin-left: 25rpx;border-radius: 10rpx;}
-.page_mid>.chapters .item>.item_name{height: 60rpx;width: 550rpx;position: absolute;left: 50rpx;top: 25rpx;line-height: 60rpx;font-size: 30rpx; z-index: 2;overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
-.page_mid>.chapters .item>.progress_count{height: 60rpx;width: 150rpx;position: absolute;left: 50rpx;top: 120rpx;line-height: 60rpx;font-size: 25rpx;z-index: 2}
-.page_mid>.chapters .item>.progress_warper{height: 60rpx;width: 380rpx;position: absolute;top: 120rpx;left: 220rpx;}
-.page_mid>.chapters .item>.progress_warper progress{margin-top: 20rpx;}
+.page_mid>.search{height: 100rpx;width: 100%;position:absolute;left: 0;top:60rpx;z-index: 3;background: #ccc;}
+.page_mid>.search>.search_label{height: 60rpx;width: 700rpx;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;background: rgb(133, 91, 91);text-align: center;z-index: 4;}
+.page_mid>.search>.search_label> icon{font-size: 25rpx;margin-right: 20rpx;line-height: 60rpx}
+.page_mid>.search>.search_label> .label_text{display: inline-block;font-size: 25rpx;line-height: 60rpx;}
+.page_mid>.search>.search_box{height: 60rpx;width: 700rpx;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;background: rgb(133, 91, 91);z-index: 4}
+.page_mid>.search>.search_box>.left_box{height: 60rpx;width: 600rpx;position: absolute;left: 0;top: 0;z-index: 5;display: flex;flex-direction: row;}
+.page_mid>.search>.search_box>.left_box> .search_icon{height: 60rpx;width: 50rpx;line-height: 60rpx;text-align: center}
+.page_mid>.search>.search_box>.left_box>.search_input{height: 60rpx;width: 500rpx;font-size: 25rpx;line-height: 60rpx}
+.page_mid>.search>.search_box>.left_box>.clear_content{height: 60rpx;width: 50rpx;line-height: 60rpx;text-align: center}
+.page_mid>.search>.search_box>.cancel{height: 60rpx;width:80rpx;position: absolute;right: 0;top: 0;z-index: 5;line-height: 60rpx;font-size: 25rpx;text-align: center;color: #fff}
+.page_mid>.search>.search_result{width: 700rpx;position: absolute;left: 25rpx;top: 80rpx;z-index: 6}
+.page_mid>.search>.search_result>.result{height: 60rpx;width:700rpx;line-height: 60rpx;font-size: 25rpx;background: #fff;text-indent: 2em}
+
+
+
+
+.page_mid .item{height:150rpx;width: 635rpx; background:skyblue;position: relative;  margin-top: 62rpx;margin-bottom:62rpx; margin-left: 20rpx;border-radius: 10rpx;}
+.page_mid .item>.item_name{height: 60rpx;width: 550rpx;position: absolute;left: 50rpx;top: 25rpx;line-height: 60rpx;font-size: 30rpx; z-index: 5;overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
+.page_mid .item>.progress_count{height: 60rpx;width: 150rpx;position: absolute;left: 50rpx;top: 80rpx;line-height: 60rpx;font-size: 25rpx;z-index: 6}
+.page_mid .item>.progress_warper{height: 60rpx;width: 380rpx;position: absolute;top:80rpx;left: 220rpx;}
+.page_mid .item>.progress_warper progress{margin-top: 20rpx;}
 ::-webkit-scrollbar{width: 0;height: 0;color: transparent}
+
+
+

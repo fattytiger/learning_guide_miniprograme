@@ -1,6 +1,17 @@
-<view class='page'>
-  <image animation="{{mount_right}}" class='start_mount_01' src='../../images/start_bg2.png'></image>
-  <image animation="{{mount_left}}" class='start_mount_02' src='../../images/start_bg3.png'></image>
-  <image class='start_person' animation="{{mount_person}}" src='../../images/start_person.png'></image>
-  <button class='start_btn' animation="{{mount_btn}}" bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'></button>
+<view class='page' style='position:relative;height:{{systemInfo.screenHeight}};width={{systemInfo.screenWidth}}'>
+  <image 
+  style='position:absolute;left:0px;top:0rpx;height:{{systemInfo.screenHeight}}px;width:{{systemInfo.screenWidth}}px' 
+   src='{{image_src.mount_bg}}'></image>
+  <image animation="{{mount_right}}" 
+  style='position:absolute;left:{{systemInfo.screenWidth}}px;top:0rpx;height:{{systemInfo.screenHeight}}px;width:{{systemInfo.screenWidth}}px' 
+ src='{{image_src.mount_right}}'>
+  </image>
+  <image animation="{{mount_left}}"
+   style='position:absolute;left:-{{systemInfo.screenWidth}}px;top:0px;height:{{systemInfo.screenHeight}}px;width:{{systemInfo.screenWidth}}px'
+ src='{{image_src.mount_left}}'>
+  </image>
+  <image 
+  style='position:absolute;left:0px;top:-{{systemInfo.screenHeight}}px;height:{{systemInfo.screenHeight}}px;width:{{systemInfo.screenWidth}}px'
+ animation="{{mount_person}}" src='{{image_src.person}}'></image>
+  <button style='position:absolute;width:{{systemInfo.windowWidth*(200/750)}}px;height:{{systemInfo.windowHeight*(100/1334)}}px;top:{{systemInfo.windowHeight*(1100/1334)}}px;left:{{-systemInfo.windowWidth*(200/750)}}px;background:url(../../images/start_btn.png) no-repeat;background-size: {{systemInfo.windowWidth*(200/750)}}px {{systemInfo.windowHeight*(100/1334)}}px;' animation="{{mount_btn}}" bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'></button>
 </view>

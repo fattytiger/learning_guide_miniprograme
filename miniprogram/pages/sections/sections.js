@@ -2,6 +2,7 @@
 import array_option from '../../utils/utils.js'
 import animation from '../../utils/animation.js'
 const db = wx.cloud.database()
+const app = getApp()
 Page({
   ...array_option.array_option,
   ...animation.section_animation,
@@ -19,7 +20,23 @@ Page({
     show: [
       []
     ],
-    button_arr: []
+    button_arr: [],
+    systemInfo:{},
+    bookimage:[
+      '../../images/book.png',
+      '../../images/book_2.png',
+      '../../images/book_3.png',
+      '../../images/book_4.png',
+      '../../images/book.png',
+      '../../images/book_2.png',
+      '../../images/book_3.png',
+      '../../images/book_4.png'
+    ],
+    random_arr:[],
+    shuqian_image:[
+      '../../images/shuqian.png',
+      '../../images/shuqian_2.png'
+    ]
   },
   learn_article: function(e) {
 
@@ -35,15 +52,12 @@ Page({
         show: this.arr_splice_reverse(this.data.sections.length, this.data.mini_section.length),
         button_arr: this.arr_splice_flag_reverse(this.data.sections.length, index)
       })
-      this.mini_section_show(this, 'mini_section_animation', -75, 0.1)
     }
     if (button_arr[index] == 1) {
       this.setData({
         show: this.arr_splice(this.data.sections.length, this.data.mini_section.length, index),
         button_arr: this.arr_splice_flag(this.data.sections.length, index)
       })
-
-      this.mini_section_show(this, 'mini_section_animation', -25, 1.0)
     }
 
   },
@@ -58,68 +72,53 @@ Page({
       url: '../articals/articals?mini_section_id=' + target + '&template=' + template + '&chapter_id=' + this.data.chapter_id + '',
     })
   },
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
+    
+
     this.setData({
-      chapter_id: options.chapter_id
+      chapter_id: options.chapter_id,
+      systemInfo:app.globalData.systemInfo
     })
     db.collection("chapter").where({
       chapter_id: this.data.chapter_id
     }).get({
       success: res => {
+
+        //随机图片
+        let random_arr = new Array();
+        for(let i=0;i<res.data[0].section.length;i++){
+          random_arr[i] = parseInt(Math.random() * res.data[0].section.length)
+        }
         this.setData({
           sections: res.data[0].section,
           chapter_name: res.data[0].chapter_name,
           mini_section: res.data[0].mini_section,
           target: res.data[0].target,
           show: this.arr_push(res.data[0].section.length, res.data[0].mini_section),
-          button_arr: this.arr_push_one(res.data[0].section.length)
+          button_arr: this.arr_push_one(res.data[0].section.length),
+          random_arr:random_arr
         })
+
+
       }
     })
+    setTimeout(function () {
+      this.banner_animation(this, 'banner', this.data.systemInfo.windowHeight * (450 / 1334))
+    }.bind(this), 100)
+    setTimeout(function () {
+      this.banner_title_animation(this, 'banner_title', this.data.systemInfo.windowWidth * (600 / 750))
+    }.bind(this), 100)
+    setTimeout(function () {
+      this.banner_title_animation(this, 'target', -this.data.systemInfo.windowWidth * (600 / 750))
+    }.bind(this), 100)
+    setTimeout(function () {
+      this.init_page(this, 'page_mid', this.data.systemInfo.windowHeight * (130 / 1334))
+    }.bind(this), 100)
+    let test = parseInt(Math.random() * 10)
+    console.log(test) 
+
   },
   onShow: function() {
-    db.collection("chapter").where({
-      chapter_id: this.data.chapter_id
-    }).get({
-      success: res => {
-        this.setData({
-          sections: res.data[0].section,
-          chapter_name: res.data[0].chapter_name,
-          mini_section: res.data[0].mini_section,
-          target: res.data[0].target,
-          show: this.arr_push(res.data[0].section.length, res.data[0].mini_section),
-          button_arr: this.arr_push_one(res.data[0].section.length)
-        })
-      }
-    })
-    setTimeout(function() {
-      this.banner_animation(this, 'banner', 225)
-    }.bind(this), 100)
-    setTimeout(function() {
-      this.banner_title_animation(this, 'banner_title', 300)
-    }.bind(this), 100)
-    setTimeout(function() {
-      this.banner_title_animation(this, 'target', -300)
-    }.bind(this), 100)
-    setTimeout(function() {
-      this.init_page(this, 'page_mid', 65)
-    }.bind(this), 100)
-    setTimeout(function() {
-      this.init_page(this, 'section_animation', -25)
-    }.bind(this), 500)
-    setTimeout(function() {
-      this.init_page(this, 'mini_section_animation', -25)
-    }.bind(this), 500)
-    setTimeout(function() {
-      this.mini_section_show(this, 'mini_section_animation', -75, 0.1)
-    }.bind(this), 500)
+   
   },
-
-
-
 })

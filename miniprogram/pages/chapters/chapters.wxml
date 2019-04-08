@@ -1,26 +1,79 @@
 <view class='page_top'>
-  <view class='banner' animation='{{top_in}}'>
-    <view class='banner'></view>
-  </view>
+  <swiper autoplay='true' current='0' interval='3000' duration='500' circular='true' style='height:400rpx;width:650rpx;position:absolute;top: {{-systemInfo.screenHeight*(400/1334)}}px; left: 50rpx;z-index:1;border-radius:20rpx' animation="{{top_in}}">
+    <block wx:for="{{lunbo}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src='{{item}}' style='width:649.9rpx;height:400rpx;border-radius:20rpx'></image>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
 
 <view class='page_mid'>
-<wxs module="test" src="../../utils/test.wxs"></wxs>
-   <scroll-view scroll-y  animation="{{chapter_in}}" scroll-top="{{scroll_top}}" class='chapters'  scroll-into-view="scroll{{status}}"   bindscroll='{{test.scroll}}'
-   scroll-with-animation>
-      <block wx:for="{{chapters}}" wx:key="{{index}}">
-      <view id='scroll{{index}}'  class='item' animation="{{change_scroll}}" data-click_num="{{index}}"  data-num="{{item.chapter_id}}" data-nav_id="1" bindtap='learn'>
-        <view class='item_name'>
-          <text>{{item.chapter_name}}</text>
+
+  <!-- <view class='search'>
+    <view class='search_box'>
+      <view class='left_box'>
+        <view class='search_icon'>
+          <icon type='search' size='14'></icon>
         </view>
-        <view class='progress_count'>
-          <text>完成：{{progress[index]>=100?100:progress[index]}}%</text>
-        </view>
-        <view class='progress_warper'>
-           <progress percent='{{progress[index]}}' border-radius='20rpx' stroke-width='15rpx'></progress>
+        <input type='text' class='search_input' placeholder='搜索' value='{{input_val}}' focus='{{input_show}}' bindinput='input_content'></input>
+        <view class='clear_content' wx:if="{{input_val.length>0}}" bindtap='clear_input'>
+          <icon type='clear' size='14'></icon>
         </view>
       </view>
-    </block>
-   </scroll-view>
+      <view class='cancel' bindtap='hide_input'>
+        <text>取消</text>
+      </view>
+    </view>
+    <label class='search_label' hidden='{{input_show}}' bindtap='show_input'>
+      <icon type='search' size='14'></icon>
+      <view class='label_text'>
+        <text>搜索</text>
+      </view>
+    </label>
+    <view class='search_result' wx:if="{{input_val.length>0}}">
+      <view class='result'>
+        <text>搜索文本</text>
+      </view>
+      <view class='result'>
+        <text>搜索文本</text>
+      </view>
+      <view class='result'>
+        <text>搜索文本</text>
+      </view>
+      <view class='result'>
+        <text>搜索文本</text>
+      </view>
+    </view>
+  </view> -->
+
+
+
+
+
+  <view style='height:500rpx;width:750rpx;position:absolute;top:120rpx;left:0rpx;z-index:1;'>
+    <view style='position:absolute;top:0;left:0;height:500rpx;width:750rpx;'>
+      <image src='../../images/datyinji.png' style='height:500rpx;width:750rpx'></image>
+    </view>
+    <view style="height:300rpx;width: 675rpx; position: absolute;left:39rpx;top:226rpx;z-index:3;overflow:hidden;">
+      <swiper vertical='true' style='height:275rpx;width: 675rpx; position: absolute;left:0rpx;top:{{-systemInfo.screenHeight*(275/1334)}}px;border-radius: 20rpx;z-index: 4;' duration='100' current='0'  animation='{{calendar}}'>
+        <block wx:for="{{chapters}}" wx:key="{{index}}">
+          <swiper-item>
+            <view id='scroll{{index}}' class='item' data-click_num="{{index}}" data-num="{{item.chapter_id}}" data-nav_id="1" bindtap='learn'>
+              <view class='item_name'>
+                <text>{{item.chapter_name}}</text>
+              </view>
+              <view class='progress_count'>
+                <text>完成：{{progress[index]>=100?100:(progress[index]*10/10)}}%</text>
+              </view>
+              <view class='progress_warper'>
+                <progress  percent='{{progress[index]}}' border-radius='20rpx' stroke-width='15rpx'></progress>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
 
 </view>

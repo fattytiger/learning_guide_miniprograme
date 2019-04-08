@@ -1,0 +1,18 @@
+<!--miniprogram/pages/collections/collections.wxml-->
+<view class='page_top'>
+  <text>收藏</text>
+</view>
+<view wx:if="{{showTips}}" class='tips'>
+  <text>这里什么都没有哦，赶快去阅读文章并添加吧</text>
+</view>
+<view wx:if="{{!showTips}}" wx:for="{{collection}}" wx:key="{{index}}">
+  <view class='item' wx:if="{{!item.delete_flag}}">
+    <view class='item_info' bindtap='into_section' data-target="{{item.mini_section_id}}" data-template="{{item.template}}" data-chapter_id="{{item.chapter_id}}">
+      <view class='item_name'>{{item.mini_section_name}}</view>
+      <view class='item_time'>{{item.date}}</view>
+    </view>
+    <view class='item_option' data-mini='{{item.mini_section_id}}' bindtap='clear_collection'>
+      <icon size='24' type='clear' color='#fff'></icon>
+    </view>
+  </view>
+</view>

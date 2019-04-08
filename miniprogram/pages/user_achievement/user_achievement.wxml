@@ -1,8 +1,8 @@
 <view class="page_top">
-  <view class='user_icon'>
-    <image src='{{userInfo.avatarUrl}}'></image>
+  <view class='user_icon' >
+    <image src='{{userInfo.avatarUrl}}' animation='{{user_icon}}'></image>
   </view>
-  <view class='user_name'>
+  <view class='user_name' >
     <text>{{userInfo.nickName}}</text>
   </view>
   <view class='user_get'>
@@ -10,17 +10,27 @@
       <text>总进度</text>
     </view>
     <view class='progress_warper'>
-      <progress percent='{{progress[index]}}' border-radius='20rpx' stroke-width='15rpx'></progress>
+      <progress percent='{{progress}}' border-radius='20rpx' stroke-width='15rpx'></progress>
     </view>
-    <view class='font_two'>我的成就</view>
-    <view class='chievement_icon'>
-      <image src='../../images/chievement_01.png'></image>
+    <view class='font_two'>
+      <text>我的成就</text>
+      <text>倔强小白</text>
+    </view>
+    <view class='chievement_icon' animation="{{chieve}}">
+      <image src='{{edage_image[0]}}'></image>
     </view>
   </view>
 </view>
 <view class='page_mid'>
   <view class='collection'>
-    <view class='icon'></view>
-    <view class='font'>我的收藏</view>
+    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
+      <image src='../../images/collection_icon.png' style='width:80rpx;height:80rpx;'></image>
+    </view>
+    <view class='detail' bindtap='into_collection'>
+      <view class='font'>
+        <text>我的收藏</text>
+      </view>
+      <view style='width:80rpx;height:80rpx;margin-left:10rpx;background:url(../../images/section_icon.png) no-repeat;background-size:80rpx 80rpx;'></view>
+    </view>
   </view>
 </view>

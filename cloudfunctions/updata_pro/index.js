@@ -13,11 +13,11 @@ exports.main = async (event, context) => {
       try {
         return await db.collection('counters').where({
           _openid: event.open_id
-        })
-          .update({
-            data: {
-              chapter_01: _.inc(15)
-            }
+        }).update({
+          data: {
+            chapter_01: _.inc(9.1),
+            progress:_.inc(0.764)
+          }
           })
       } catch (e) {
         console.error(e)
@@ -48,7 +48,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_03: _.inc(1)
+              chapter_03: _.inc(11.2),
+              progress:_.inc(0.923)
             }
           })
       } catch (e) {

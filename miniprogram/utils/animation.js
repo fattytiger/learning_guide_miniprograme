@@ -3,7 +3,7 @@ export default {
     //banner出入场
     banner_animation(that, lable, length_one, length_two, length_three) {
       let animation = wx.createAnimation({
-        duration: 500,
+        duration: 1000,
         timingFunction: 'linear'
       })
       if(length_one&&length_two&&length_three){
@@ -61,16 +61,49 @@ export default {
       json = JSON.parse(json);
       json[label] = animation.export()
       that.setData(json)
-    }
-
-  },
-  section_animation:{
-    mini_section_show(that, lable, length,value){
+    },
+    calendar_animation(that,label,length){
       let animation = wx.createAnimation({
         duration: 500,
         timingFunction: 'linear'
       })
-      animation.translateY(length).opacity(value).step()
+      animation.translateY(length).step()
+      let json = '{"' + label + '":""}'
+      json = JSON.parse(json);
+      json[label] = animation.export()
+      that.setData(json)
+    },
+     user_icon_animation(that,lable,deg) {
+      let animation = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'linear'
+      })
+      animation.rotate(deg).step()
+      let json = '{"' + lable + '":""}'
+      json = JSON.parse(json);
+      json[lable] = animation.export()
+      that.setData(json)
+    },
+    user_chieve_animation(that,lable,scale_one,scale_two){
+      let animation = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'linear'
+      })
+      animation.scale(scale_one).step().scale(scale_two).step()
+      let json = '{"' + lable + '":""}'
+      json = JSON.parse(json);
+      json[lable] = animation.export()
+      that.setData(json)
+    }
+
+  },
+  section_animation:{
+    mini_section_show(that, lable,value){
+      let animation = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'linear'
+      })
+      animation.opacity(value).step()
       let json = '{"' + lable + '":""}'
       json = JSON.parse(json);
       json[lable] = animation.export()
