@@ -13,5 +13,5 @@
   <image 
   style='position:absolute;left:0px;top:-{{systemInfo.screenHeight}}px;height:{{systemInfo.screenHeight}}px;width:{{systemInfo.screenWidth}}px'
  animation="{{mount_person}}" src='{{image_src.person}}'></image>
-  <button style='position:absolute;width:{{systemInfo.windowWidth*(200/750)}}px;height:{{systemInfo.windowHeight*(100/1334)}}px;top:{{systemInfo.windowHeight*(1100/1334)}}px;left:{{-systemInfo.windowWidth*(200/750)}}px;background:url(../../images/start_btn.png) no-repeat;background-size: {{systemInfo.windowWidth*(200/750)}}px {{systemInfo.windowHeight*(100/1334)}}px;' animation="{{mount_btn}}" bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'></button>
+  <button style='position:absolute;width:{{systemInfo.windowWidth*(200/750)}}px;height:{{systemInfo.windowHeight*(100/1334)}}px;top:{{systemInfo.windowHeight*(1100/1334)}}px;left:{{-systemInfo.windowWidth*(200/750)}}px;line-height:{{systemInfo.windowHeight*(100/1334)}}px; font-size:30rpx;background:#2c9f67;color:#fff'  animation="{{mount_btn}}" bindgetuserinfo='onGetUserInfo' open-type='getUserInfo'>开启旅程</button>
 </view>

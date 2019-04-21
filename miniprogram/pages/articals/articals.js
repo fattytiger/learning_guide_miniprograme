@@ -10,7 +10,7 @@ Page({
    */
   data: {
     template: "",
-    page_data: {},
+    page_data:{},
     flag: false,
     collection_flag:false,
     collection_text:'收藏',
@@ -19,7 +19,8 @@ Page({
     mini_section_id: '',
     flag_text: '阅读',
     image_src:[],
-    image_flag:[]
+    image_flag:[],
+    nodes:''
   },
   //图片预览功能
   preview_image:function(e){
@@ -43,28 +44,32 @@ Page({
       })
     }
    if(this.data.collection_flag==false){
-     wx.cloud.callFunction({
-       name:'collections_add',
-       data:{
-         open_id: this.data.open_id,
-         mini_section_id: this.data.mini_section_id,
-         mini_section_name: this.data.page_data.mini_section_name,
-         template: this.data.template,
-         chapter_id: this.data.chapter_id,
-         delete_flag: false
-       },success:res => {
-           console.log(res)
-           this.setData({
-             collection_flag: true,
-             collection_text: '已收藏',
-           })
-           wx.showToast({
-             title: '已收藏',
-             icon: 'success',
-             duration: 2000
-           })
-       },fail:err => {
-         console.log(err)
+     wx.showLoading({
+       title: '正在收藏',
+       mask:true,
+       success:res => {
+         wx.cloud.callFunction({
+           name: 'collections_add',
+           data: {
+             open_id: this.data.open_id,
+             mini_section_id: this.data.mini_section_id,
+             mini_section_name: this.data.page_data.mini_section_name,
+             template: this.data.template,
+             chapter_id: this.data.chapter_id,
+             delete_flag: false
+           }, success: res => {
+             console.log(res)
+             this.setData({
+               collection_flag: true,
+               collection_text: '已收藏',
+             })
+             setTimeout(function(){
+              wx.hideLoading()
+             })
+           }, fail: err => {
+             console.log(err)
+           }
+         })
        }
      })
    }
@@ -74,38 +79,42 @@ Page({
   read: function() {
     //如果没阅读就往数据库中写入数据，如果阅读过就返回
     if (this.data.flag == false) {
-      wx.cloud.callFunction({
-        name: "updata_pro",
-        data: {
-          open_id: this.data.open_id,
-          chapter_id: this.data.chapter_id
-        },
-        success: res => {
-          console.log(res)
+      wx.showLoading({
+        title: '正在请求',
+        mask:true,
+        success:res => {
           wx.cloud.callFunction({
-            name: 'update_section',
+            name: "updata_pro",
             data: {
               open_id: this.data.open_id,
-              mini_section_id: this.data.mini_section_id
+              chapter_id: this.data.chapter_id
             },
             success: res => {
-              this.setData({
-                flag: true,
-                flag_text: '已阅读'
-              })
-              wx.showToast({
-                title: '已阅读',
-                icon: 'success',
-                duration: 2000
+              console.log(res)
+              wx.cloud.callFunction({
+                name: 'update_section',
+                data: {
+                  open_id: this.data.open_id,
+                  mini_section_id: this.data.mini_section_id
+                },
+                success: res => {
+                  this.setData({
+                    flag: true,
+                    flag_text: '已阅读'
+                  })
+                  setTimeout(function(){
+                    wx.hideLoading()
+                  })
+                },
+                fail: err => {
+                  console.log(err)
+                }
               })
             },
             fail: err => {
               console.log(err)
             }
           })
-        },
-        fail: err => {
-          console.log(err)
         }
       })
     } 
@@ -123,76 +132,88 @@ Page({
    */
   onLoad: function(options) {
 
-    //获取数据库中的文章
-    let mini_section_id = options.mini_section_id
-    this.setData({
-      template: options.template,
-      open_id: app.globalData.openid,
-      chapter_id: options.chapter_id,
-      mini_section_id: mini_section_id
+    
 
-    })
-    console.log(app.globalData.openid)
-    db.collection('artical').where({
-      mini_section_id: mini_section_id
-    }).get({
-      success: res => {
-        console.log(res.data[0])
-        let image_src = new Array()
-        let image_flag = new Array()
-        for (let i = 0; i < res.data[0].data.content.length; i++) {
-          if (res.data[0].data.content[i].image) {
-            image_src[i] = res.data[0].data.content[i].image
-            image_flag[i] = i
-          } else {
-            image_src[i] = 'no'
-            image_flag[i] = 'no'
-          }
-        }
+    wx.showLoading({
+      title: '加载中',
+      mask:true,
+      success:res=>{
+        //获取数据库中的文章
+        let mini_section_id = options.mini_section_id
         this.setData({
-          page_data: res.data[0],
-          image_src:image_src,
-          image_flag:image_flag
+          template: options.template,
+          open_id: app.globalData.openid,
+          chapter_id: options.chapter_id,
+          mini_section_id: mini_section_id
+        })
+        db.collection('artical').where({
+          mini_section_id: mini_section_id
+        }).get({
+          success: res => {
+            console.log(res)
+            let image_src = new Array()
+            let image_flag = new Array()
+            for (let i = 0; i < res.data[0].data.content.length; i++) {
+              if (res.data[0].data.content[i].image) {
+                image_src[i] = res.data[0].data.content[i].image
+                image_flag[i] = i
+              } else {
+                image_src[i] = 'no'
+                image_flag[i] = 'no'
+              }
+            }
+            this.setData({
+              page_data: res.data[0],
+              image_src: image_src,
+              image_flag: image_flag,
+              nodes: res.data[0].data.content
+            })
+            //判断用户是否阅读过该文章
+            db.collection('counters').where({
+              _openid: this.data.open_id
+            }).get({
+              success: res => {
+                let section_arr = res.data[0].mini_section_id
+                for (let i = 0; i < section_arr.length; i++) {
+                  if (section_arr[i] == options.mini_section_id) {
+                    this.setData({
+                      flag: true,
+                      flag_text: '已阅读'
+                    })
+                    break
+                  }
+                }
+                setTimeout(function () {
+                  wx.hideLoading()
+                })
+              }
+            })
+            db.collection('user_collections').where({
+              _openid: this.data.open_id
+            }).where({
+              mini_section_id: options.mini_section_id
+            }).get({
+              success: res => {
+                if (res.data.length == 0) {
+                  this.setData({
+                    collection_flag: false
+                  })
+                } else {
+                  this.setData({
+                    collection_flag: true
+                  })
+                }
+              }
+            })
+            
+          }
         })
       }
     })
+    
 
 
-    //判断用户是否阅读过该文章
-    db.collection('counters').where({
-      _openid: this.data.open_id
-    }).get({
-      success: res => {
-        let section_arr = res.data[0].mini_section_id
-        for (let i = 0; i < section_arr.length; i++) {
-          if (section_arr[i] == options.mini_section_id) {
-            console.log(section_arr[i])
-            this.setData({
-              flag: true,
-              flag_text: '已阅读'
-            })
-            break
-          }
-        }
-      }
-    })
-    db.collection('user_collections').where({
-      _openid:this.data.open_id
-    }).where({
-      mini_section_id: options.mini_section_id
-    }).get({
-      success:res=>{
-        if(res.data.length==0){
-          this.setData({
-            collection_flag:false
-          })
-        }else{
-          this.setData({
-            collection_flag:true
-          })
-        }
-      }
-    })
+    
 
   },
   onShow: function() {

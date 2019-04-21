@@ -1,0 +1,106 @@
+<view class='page_top'>
+  <text>{{chapter_name}}</text>
+</view>
+<view wx:if="{{page_flag=='no'}}">
+  <view wx:if="{{!score_flag}}" class='page_detail' animation="{{page_detail}}">
+    <view wx:for="{{question_list}}" class='item' wx:key="{{index}}">
+      <view class='des'>
+        <view class='left'>
+          {{index+1}}、 单选题 分值 10.0
+        </view>
+        <view class='right'>
+          {{index+1}}/10
+        </view>
+      </view>
+      <view class='question'>
+        <text>{{item.title}}</text>
+      </view>
+      <radio-group class="radio-group" data-id="{{index}}" bindchange="radio_change">
+        <label class="radio" wx:for="{{item.options}}" wx:key="{{index}}">
+          <radio value="{{item}}" /> {{item}}
+        </label>
+      </radio-group>
+      <view wx:if="{{submit_flag}}" class='correct'>
+        <view class='score'>
+          本题得分：
+          <text class='green' wx:if="{{checked_arr[index]==''}}">10 分</text>
+          <text class='red' wx:if="{{checked_arr[index]!=''}}">0 分</text>
+        </view>
+        <view class='info'>
+          <view class='correct_answer'>正确答案:{{item.correct}}</view>
+          <view class='user_answer'>你的答案:
+            <text wx:if="{{checked_arr[index]==''}}" class='green'>{{answer_arr[index]}}</text>
+            <text wx:if="{{checked_arr[index]!=''}}" class='red'>{{answer_arr[index]}}</text>
+          </view>
+        </view>
+        <view class='title'>
+          试题解析
+        </view>
+        <view class='desc'>
+          {{item.desc}}
+        </view>
+      </view>
+    </view>
+    <view class='sub' wx:if="{{sub_flag}}" bindtap='submit'>提交</view>
+    <view class='sub' wx:if="{{!sub_flag}}" bindtap='submit'>查看成绩</view>
+  </view>
+  <view wx:if="{{score_flag}}" class='score'>
+    <image src='../../images/score.png'></image>
+    <view class='total'>总分：100分</view>
+    <view class='detail'>得分：
+      <text class='font-big'>{{user_score}}</text> </view>
+    <view class='into_detail' bindtap='into_detail'>查看详情</view>
+  </view>
+</view>
+<view wx:if="{{page_flag=='yes'}}">
+  <view wx:if="{{!score_flag}}" class='page_detail' animation="{{page_detail}}">
+    <view wx:for="{{question_list}}" class='item' wx:key="{{index}}">
+      <view class='des'>
+        <view class='left'>
+          {{index+1}}、 单选题 分值 10.0
+        </view>
+        <view class='right'>
+          {{index+1}}/10
+        </view>
+      </view>
+      <view class='question'>
+        <text>{{item.title}}</text>
+      </view>
+      <radio-group class="radio-group" data-id="{{index}}" bindchange="radio_change">
+        <label class="radio" wx:for="{{item.options}}" wx:key="{{index}}">
+          <radio value="{{answer_arr[index]}}" /> {{item}}
+        </label>
+      </radio-group>
+      <view wx:if="{{submit_flag}}" class='correct'>
+        <view class='score'>
+          本题得分：
+          <text class='green' wx:if="{{checked_arr[index]==''}}">10 分</text>
+          <text class='red' wx:if="{{checked_arr[index]!=''}}">0 分</text>
+        </view>
+        <view class='info'>
+          <view class='correct_answer'>正确答案:{{item.correct}}</view>
+          <view class='user_answer'>你的答案:
+            <text wx:if="{{checked_arr[index]==''}}" class='green'>{{answer_arr[index]}}</text>
+            <text wx:if="{{checked_arr[index]!=''}}" class='red'>{{answer_arr[index]}}</text>
+          </view>
+        </view>
+        <view class='title'>
+          试题解析
+        </view>
+        <view class='desc'>
+          {{item.desc}}
+        </view>
+      </view>
+    </view>
+    <view class='sub' wx:if="{{sub_flag}}" bindtap='submit'>提交</view>
+    <view class='sub' wx:if="{{!sub_flag}}" bindtap='submit'>查看成绩</view>
+  </view>
+  <view wx:if="{{score_flag}}" class='score'>
+    <image src='../../images/score.png'></image>
+    <view class='total'>总分：100分</view>
+    <view class='detail'>得分：
+      <text class='font-big'>{{user_score}}</text> </view>
+    <view  class='into_detail' bindtap='into_detail'>查看详情</view>
+    <view class='retest' bindtap='retest'>重新测试</view>
+  </view>
+</view>

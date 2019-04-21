@@ -52,12 +52,10 @@ Page({
         name:'login',
         success:res => {
           app.globalData.openid = res.result.openid
-          console.log(res)
           db.collection('counters').where({
             _openid:res.result.openid
           }).get({
             success:res => {
-              console.log(res)
               if (res.data.length == 0) {
                 wx.cloud.callFunction({
                   name: 'user_init',
@@ -84,15 +82,15 @@ Page({
     //出入场动画
       setTimeout(function () {
         this.bg_show(this, 'mount_right', -(this.data.systemInfo.screenWidth))
-      }.bind(this), 200)
-      setTimeout(function () {
-        this.bg_show(this, 'mount_left', this.data.systemInfo.screenWidth)
       }.bind(this), 500)
       setTimeout(function () {
-        this.person_show(this, 'mount_person', this.data.systemInfo.screenHeight)
-      }.bind(this), 800)
-      setTimeout(function () {
-        this.bg_show(this, 'mount_btn', this.data.systemInfo.screenWidth*(250/750))
+        this.bg_show(this, 'mount_left', this.data.systemInfo.screenWidth)
       }.bind(this), 1000)
+      setTimeout(function () {
+        this.person_show(this, 'mount_person', this.data.systemInfo.screenHeight)
+      }.bind(this), 1500)
+      setTimeout(function () {
+        this.bg_show(this, 'mount_btn', this.data.systemInfo.screenWidth * (250 / 750))
+      }.bind(this), 3000)
     }
 })

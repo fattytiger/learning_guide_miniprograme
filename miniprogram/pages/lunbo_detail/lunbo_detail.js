@@ -1,18 +1,39 @@
-// pages/test/test.js
+// miniprogram/pages/lunbo_detail/lunbo_detail.js
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    image:'',
+    content:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '请稍后',
+      success:res => {
+        db.collection('lunbo_detail').where({
+          id: options.id
+        }).get({
+          success: res => {
+            this.setData({
+              content: res.data[0].content,
+              image: res.data[0].image
+            })
+            setTimeout(function(){
+              wx.hideLoading()
+            })
+          }, fail: err => {
+            console.log(err)
+          }
+        }) 
+      }
+    })
   },
 
   /**

@@ -1,6 +1,6 @@
 /* miniprogram/pages/collections/collections.wxss */
-.page_top{height: 100rpx;width: 100%;line-height: 100rpx;text-align: center;background: #e45e5e;color: #fff}
-.item{height:150rpx;width: 95%;margin: 10rpx auto;display: flex;flex-direction: row;background: #a195b8;border-radius: 20rpx;box-shadow: 0rpx 0rpx 50rpx  #b7aad1 inset}
+.page_top{height: 100rpx;width: 100%;line-height: 100rpx;text-align: center;background: #b47af5;color: #fff}
+.item{height:150rpx;width: 95%;margin: 10rpx auto;display: flex;flex-direction: row;background: #a293b4;border-radius: 20rpx;box-shadow: 0rpx 0rpx 50rpx #a293b0 inset}
 .item>.item_info{height: 150rpx;width: 70%;color: #fff;font-size: 25rpx;}
 .item>.item_info>.item_name{height: 70rpx;width: 100%;line-height: 70rpx;text-indent: 2em;margin-top: 5rpx;}
 .item>.item_info>.item_time{height: 70rpx;width: 100%;line-height: 70rpx;text-indent: 2em;margin-top: 5rpx}

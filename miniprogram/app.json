@@ -1,19 +1,15 @@
 {
   "pages": [
     "pages/start/start",
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
     "pages/chapters/chapters",
     "pages/sections/sections",
     "pages/articals/articals",
     "pages/user_achievement/user_achievement",
     "pages/test/test",
-    "pages/collections/collections"
+    "pages/collections/collections",
+    "pages/chapter_test/chapter_test",
+    "pages/question_detail/question_detail",
+    "pages/lunbo_detail/lunbo_detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -23,9 +19,9 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#000",
-    "selectedColor": "#000",
-    "backgroundColor": "#f9e5da",
+    "color": "#fff",
+    "selectedColor": "#92278f",
+    "backgroundColor": "#cbbbd5",
     "borderStyle": "white",
     "list": [
       {

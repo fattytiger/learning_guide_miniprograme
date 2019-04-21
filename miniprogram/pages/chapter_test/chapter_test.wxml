@@ -1,0 +1,25 @@
+<view class='page_top'>
+  <view class='top_1'>
+    <text>章节测验</text>
+  </view>
+</view>
+<view class='page_mid'>
+  <view class='page_list' animation="{{page_list}}">
+    <view wx:for="{{page_list}}" class='item' wx:key="{{index}}">
+      <view class='item_detail'>
+        <view class='item_name'>{{item.chapter_name}}</view>
+        <view class='item_score'>
+          <view class='score_all'>总分：100分</view>
+          <view class='user_score'>
+            我的得分：
+            <text class='score'>{{test_chapter[index]}}</text> 分
+          </view>
+        </view>
+      </view>
+      <view class='item_doc'>
+        <button class='complete' wx:if="{{test_chapter[index]=='0'}}" data-flag="no" data-index="{{index}}" data-id="{{item.chapter_id}}" data-name="{{item.chapter_name}}" bindtap='test_detail' type='defult'>去完成</button>
+        <button class='completed' wx:if="{{test_chapter[index]!='0'}}" data-flag="yes" data-index="{{index}}" data-id="{{item.chapter_id}}" data-name="{{item.chapter_name}}" bindtap='test_detail' type='defult'>已完成</button>
+      </view>
+    </view>
+  </view>
+</view>

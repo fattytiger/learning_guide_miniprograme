@@ -2,11 +2,12 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"appid": "wx518fb4c62123bdd0",
 	"projectname": "test_cloud",
@@ -28,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -51,7 +52,25 @@
 				{
 					"id": -1,
 					"name": "artical",
-					"pathName": "pages/articals/articals"
+					"pathName": "pages/articals/articals",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "collection",
+					"pathName": "pages/collections/collections",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "chapter_test",
+					"pathName": "pages/chapter_test/chapter_test"
 				}
 			]
 		}

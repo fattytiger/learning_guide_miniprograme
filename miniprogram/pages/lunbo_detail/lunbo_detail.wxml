@@ -1,0 +1,6 @@
+<view class='content_image'>
+  <image src="{{image}}"></image>
+</view>
+<view class='detail'>
+  <text>{{content}}</text>
+</view>

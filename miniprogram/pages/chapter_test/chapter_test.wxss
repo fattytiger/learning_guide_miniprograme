@@ -1,0 +1,21 @@
+.page_top{height: 100rpx;width: 750rpx;line-height: 100rpx;position: relatived;}
+.top_1{height: 100rpx;width: 750rpx;line-height: 100rpx;text-align: center;background: #f79649;color: #fff;position: absolute;left: 0;top: 0}
+.top_2{height: 100rpx;width: 750rpx;line-height: 100rpx;background: #415162;color: #fff;position: absolute;left: 750rpx;top: 0;display: flex;flex-direction: row}
+.top_2>.title{height: 100rpx;width: 100rpx;line-height: 100rpx;font-size: 60rpx;text-indent: 1em}
+.top_2>.title{height: 100rpx;width: 650rpx;line-height: 100rpx;font-size: 30rpx;text-indent: 2em;}
+
+
+
+
+.page_list{width:100%;}
+.page_list>.item{height: 200rpx;width: 90%;margin:20rpx auto;display: flex;flex-direction: row;background: #f3b09d;border-radius: 20rpx}
+.page_list>.item>.item_detail{height: 200rpx;width: 69%;line-height: 100rpx;text-indent: 1em;font-size: 25rpx;color: #fff;display: flex;flex-direction:column}
+.page_list>.item>.item_detail>.item_name{height: 100rpx;width:100%;line-height:150rpx;text-indent: 2em;font-size: 25rpx;color: #fff;}
+.page_list>.item>.item_detail>.item_score{height: 100rpx;width:100%;line-height: 100rpx;text-indent: 1em;font-size: 25rpx;color: #fff;display: flex;flex-direction: row}
+.page_list>.item>.item_detail>.item_score>.score_all{height: 100rpx;width:50%;line-height: 100rpx;text-align: left;text-indent: 1em;font-size: 25rpx;color: #fff;}
+.page_list>.item>.item_detail>.item_score>.user_score{height: 100rpx;width:50%;line-height: 100rpx;text-align: left;text-indent: 1em;font-size: 25rpx;color: #fff;}
+
+.page_list>.item>.item_doc{height: 200rpx;width: 30%;position: relative}
+.page_list>.item>.item_doc button{position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;height: 60rpx;width: 130rpx;color: #000;font-size: 20rpx;line-height: 60rpx}
+.completed{background: #8bb85b;color: #fff}
+.complete{background: #e06a22;color: #fff}

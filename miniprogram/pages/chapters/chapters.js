@@ -8,16 +8,11 @@ Page({
     open_id: '',
     chapters:[],
     target_id: '',
-    progress: [],
+    progress: [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     systemInfo:{},
     inputVal:'',
     inputShow:false,
-    lunbo:[
-     '../../images/lunbo/01.png',
-      '../../images/lunbo/02.png',
-      '../../images/lunbo/03.png',
-      '../../images/lunbo/04.png'
-    ],
+    lunbo_data:{},
     input_show:false,
     input_val:''
   },
@@ -44,6 +39,11 @@ Page({
     })
   },
 
+  lunbo_click:function(e){
+    wx.navigateTo({
+      url: '../lunbo_detail/lunbo_detail?id='+e.currentTarget.dataset.id+'',
+    })
+  },
 
 
 
@@ -64,6 +64,23 @@ Page({
    }
   },
   onLoad: function(options) {
+    wx.showLoading({
+      title: '请稍后',
+      success:res => {
+        db.collection('lunbo').get({
+          success: res => {
+            this.setData({
+              lunbo_data: res.data
+            })
+            setTimeout(function(){
+              wx.hideLoading()
+            })
+          }
+        })
+      }
+    })
+
+
     this.setData({
       systemInfo: app.globalData.systemInfo,
       open_id: app.globalData.openid
@@ -76,13 +93,14 @@ Page({
         })
       }
     })
-    console.log(app.globalData.systemInfo.screenHeight)
   },
 
   onReady:function(){
    
   },
+  onHide:function(){
 
+  },
   onShow: function() {
     db.collection('counters').where({
       _openid: app.globalData.openid
@@ -111,10 +129,10 @@ Page({
     })
     setTimeout(function () {
       this.banner_animation(this, 'top_in', app.globalData.systemInfo.screenHeight * (450/1334))
-    }.bind(this), 100)
+    }.bind(this), 1000)
     setTimeout(function () {
       this.calendar_animation(this, 'calendar', app.globalData.systemInfo.screenHeight * (275/1334))
-    }.bind(this), 100)
+    }.bind(this), 1000)
   },
   
   onPullDownRefresh: function() {

@@ -18,7 +18,9 @@
         <block wx:for="{{data.content}}" wx:key="{{index}}">
           <view class='content'>
             <view class='font' wx:if="{{item.font}}">{{item.font}}</view>
-            <image bindtap="preview_image" data-image_index="{{index}}" wx:if="{{item.image}}" src='{{item.image}}'></image>
+            <view class='ima' wx:if="{{item.image}}">
+              <image bindtap="preview_image" data-image_index="{{index}}" src='{{item.image}}'></image>
+            </view>
           </view>
         </block>
       </view>
@@ -53,10 +55,39 @@
         <block wx:for="{{data.content}}" wx:key="{{index}}">
           <view class='content_two '>
             <view wx:if="{{item.font}}" class='font'>{{item.font}}</view>
-            <image wx:if="{{item.image}}" src='{{item.image}} '></image>
+            <image wx:if="{{item.image}}" bindtap="preview_image" data-image_index="{{index}}" src="{{item.image}}"></image>
           </view>
           <view wx:if="{{item.table}}">
-            <view wx:if="{{item.table.table_type=='table_02 '}}" class='table_02 '>
+            <view wx:if="{{item.table.table_type=='table_02'}}" class='table_02 '>
+              <view class='tr '>
+                <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
+                  <text>{{item}}</text>
+                </block>
+              </view>
+              <block wx:for="{{item.table.td}}" wx:key="index">
+                <view class='td '>
+                  <text>{{item[0]}}</text>
+                  <text>{{item[1]}}</text>
+                </view>
+              </block>
+            </view>
+
+            <view wx:if="{{item.table.table_type=='table_03'}}" class='table_03 '>
+              <view class='tr '>
+                <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
+                  <text>{{item}}</text>
+                </block>
+              </view>
+              <block wx:for="{{item.table.td}}" wx:key="index">
+                <view class='td '>
+                  <text>{{item[0]}}</text>
+                  <text>{{item[1]}}</text>
+                  <text>{{item[2]}}</text>
+                </view>
+              </block>
+            </view>
+
+            <view wx:if="{{item.table.table_type=='table_04'}}" class='table_04 '>
               <view class='tr '>
                 <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
                   <text>{{item}}</text>
@@ -72,7 +103,7 @@
               </block>
             </view>
 
-            <view wx:if="{{item.table.table_type=='table_03 '}}" class='table_03 '>
+            <view wx:if="{{item.table.table_type=='table_05'}}" class='table_05 '>
               <view class='tr '>
                 <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
                   <text>{{item}}</text>
@@ -84,11 +115,12 @@
                   <text>{{item[1]}}</text>
                   <text>{{item[2]}}</text>
                   <text>{{item[3]}}</text>
+                  <text>{{item[4]}}</text>
                 </view>
               </block>
             </view>
 
-            <view wx:if="{{item.table.table_type=='table_04 '}}" class='table_04 '>
+            <view wx:if="{{item.table.table_type=='table_06'}}" class='table_06 '>
               <view class='tr '>
                 <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
                   <text>{{item}}</text>
@@ -100,11 +132,13 @@
                   <text>{{item[1]}}</text>
                   <text>{{item[2]}}</text>
                   <text>{{item[3]}}</text>
+                  <text>{{item[4]}}</text>
+                  <text>{{item[5]}}</text>
                 </view>
               </block>
             </view>
 
-            <view wx:if="{{item.table.table_type=='table_05 '}}" class='table_05 '>
+            <view wx:if="{{item.table.table_type=='table_07'}}" class='table_07 '>
               <view class='tr '>
                 <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
                   <text>{{item}}</text>
@@ -116,38 +150,9 @@
                   <text>{{item[1]}}</text>
                   <text>{{item[2]}}</text>
                   <text>{{item[3]}}</text>
-                </view>
-              </block>
-            </view>
-
-            <view wx:if="{{item.table.table_type=='table_06 '}}" class='table_06 '>
-              <view class='tr '>
-                <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
-                  <text>{{item}}</text>
-                </block>
-              </view>
-              <block wx:for="{{item.table.td}}" wx:key="index">
-                <view class='td '>
-                  <text>{{item[0]}}</text>
-                  <text>{{item[1]}}</text>
-                  <text>{{item[2]}}</text>
-                  <text>{{item[3]}}</text>
-                </view>
-              </block>
-            </view>
-
-            <view wx:if="{{item.table.table_type=='table_07 '}}" class='table_07 '>
-              <view class='tr '>
-                <block wx:for="{{item.table.tr}}" wx:key="{{index}}">
-                  <text>{{item}}</text>
-                </block>
-              </view>
-              <block wx:for="{{item.table.td}}" wx:key="index">
-                <view class='td '>
-                  <text>{{item[0]}}</text>
-                  <text>{{item[1]}}</text>
-                  <text>{{item[2]}}</text>
-                  <text>{{item[3]}}</text>
+                  <text>{{item[4]}}</text>
+                  <text>{{item[5]}}</text>
+                  <text>{{item[6]}}</text>
                 </view>
               </block>
             </view>
@@ -167,4 +172,4 @@
 </template>
 
 
-<template is="{{template}}" data="{{...page_data,flag,flag_text,collection_flag,collection_text}}" />
+<template is="{{template}}" data="{{...page_data,flag,flag_text,collection_flag,collection_text,nodes}}" />

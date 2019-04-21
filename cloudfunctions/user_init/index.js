@@ -22,7 +22,8 @@ exports.main = async (event, context) => {
       chapter_12: 0,
       chapter_13: 0,
       chapter_14: 0,
-      progress:0
+      progress:0,
+      test_chapter: ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
     }
   })
 }

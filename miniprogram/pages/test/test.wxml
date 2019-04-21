@@ -1,5 +1,2 @@
-<view id="warper">
-  <view class='box' bindtap='translate' >
-    <view animation='{{box}}'>后</view>
-  </view>
-</view>
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>

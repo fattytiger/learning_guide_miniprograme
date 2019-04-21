@@ -65,7 +65,6 @@ Page({
 
 
   into_mini_section: function(e) {
-    console.log(e.currentTarget.dataset.num)
     let target = e.currentTarget.dataset.num;
     let template = e.currentTarget.dataset.tem
     wx.navigateTo({
@@ -79,27 +78,32 @@ Page({
       chapter_id: options.chapter_id,
       systemInfo:app.globalData.systemInfo
     })
-    db.collection("chapter").where({
-      chapter_id: this.data.chapter_id
-    }).get({
+    wx.showLoading({
+      title: '请稍后',
       success: res => {
-
-        //随机图片
-        let random_arr = new Array();
-        for(let i=0;i<res.data[0].section.length;i++){
-          random_arr[i] = parseInt(Math.random() * res.data[0].section.length)
-        }
-        this.setData({
-          sections: res.data[0].section,
-          chapter_name: res.data[0].chapter_name,
-          mini_section: res.data[0].mini_section,
-          target: res.data[0].target,
-          show: this.arr_push(res.data[0].section.length, res.data[0].mini_section),
-          button_arr: this.arr_push_one(res.data[0].section.length),
-          random_arr:random_arr
+        db.collection("chapter").where({
+          chapter_id: this.data.chapter_id
+        }).get({
+          success: res => {
+            //随机图片
+            let random_arr = new Array();
+            for (let i = 0; i < res.data[0].section.length; i++) {
+              random_arr[i] = parseInt(Math.random() * res.data[0].section.length)
+            }
+            this.setData({
+              sections: res.data[0].section,
+              chapter_name: res.data[0].chapter_name,
+              mini_section: res.data[0].mini_section,
+              target: res.data[0].target,
+              show: this.arr_push(res.data[0].section.length, res.data[0].mini_section),
+              button_arr: this.arr_push_one(res.data[0].section.length),
+              random_arr: random_arr
+            })
+            setTimeout(function(){
+              wx.hideLoading()
+            })
+          }
         })
-
-
       }
     })
     setTimeout(function () {
@@ -115,8 +119,6 @@ Page({
       this.init_page(this, 'page_mid', this.data.systemInfo.windowHeight * (130 / 1334))
     }.bind(this), 100)
     let test = parseInt(Math.random() * 10)
-    console.log(test) 
-
   },
   onShow: function() {
    

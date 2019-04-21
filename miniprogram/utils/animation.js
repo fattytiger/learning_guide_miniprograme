@@ -64,7 +64,7 @@ export default {
     },
     calendar_animation(that,label,length){
       let animation = wx.createAnimation({
-        duration: 500,
+        duration: 1000,
         timingFunction: 'linear'
       })
       animation.translateY(length).step()
@@ -124,7 +124,7 @@ export default {
   start_animation:{
     bg_show(that, lable, length){
         let animation = wx.createAnimation({
-          duration: 500,
+          duration:1000,
           timingFunction: 'linear'
         })
         animation.translateX(length).step()
@@ -135,10 +135,23 @@ export default {
     },
     person_show(that, lable, length){
       let animation = wx.createAnimation({
-        duration:500,
+        duration:1000,
         timingFunction: 'linear'
       })
       animation.translateY(length).step()
+      let json = '{"' + lable + '":""}'
+      json = JSON.parse(json);
+      json[lable] = animation.export()
+      that.setData(json)
+    }
+  },
+  test_animation: {
+    top_animation(that, lable, length) {
+      let animation = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'linear'
+      })
+      animation.translateX(length).step()
       let json = '{"' + lable + '":""}'
       json = JSON.parse(json);
       json[lable] = animation.export()

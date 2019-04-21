@@ -32,7 +32,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_02: _.inc(1)
+              chapter_02: _.inc(11.2),
+              progress:_.inc(0.9223)
             }
           })
       } catch (e) {
@@ -65,7 +66,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_04: _.inc(1)
+              chapter_04: _.inc(3.57),
+              progress: _.inc(0.296)
             }
           })
       } catch (e) {
@@ -81,7 +83,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_05: _.inc(1)
+              chapter_05: _.inc(14.3),
+              progress: _.inc(1.186)
             }
           })
       } catch (e) {
@@ -97,7 +100,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_06: _.inc(1)
+              chapter_06: _.inc(9.1),
+              progress: _.inc(0.754)
             }
           })
       } catch (e) {
@@ -113,7 +117,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_07: _.inc(1)
+              chapter_07: _.inc(16.7),
+              progress: _.inc(1.383)
             }
           })
       } catch (e) {
@@ -129,7 +134,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_08: _.inc(1)
+              chapter_08: _.inc(9.1),
+              progress: _.inc(0.754)
             }
           })
       } catch (e) {
@@ -145,7 +151,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_09: _.inc(1)
+              chapter_09: _.inc(11.2),
+              progress: _.inc(0.923)
             }
           })
       } catch (e) {
@@ -161,7 +168,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_10: _.inc(1)
+              chapter_10: _.inc(7.7),
+              progress: _.inc(0.638)
             }
           })
       } catch (e) {
@@ -177,7 +185,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_11: _.inc(1)
+              chapter_11: _.inc(3.1),
+              progress: _.inc(0.252)
             }
           })
       } catch (e) {
@@ -193,7 +202,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_12: _.inc(1)
+              chapter_12: _.inc(11.2),
+              progress: _.inc(0.923)
             }
           })
       } catch (e) {

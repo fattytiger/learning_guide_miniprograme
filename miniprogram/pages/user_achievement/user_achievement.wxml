@@ -14,23 +14,37 @@
     </view>
     <view class='font_two'>
       <text>我的成就</text>
-      <text>倔强小白</text>
+      <text></text>
     </view>
     <view class='chievement_icon' animation="{{chieve}}">
-      <image src='{{edage_image[0]}}'></image>
+      <image src='{{edage_image[range]}}'></image>
     </view>
   </view>
 </view>
 <view class='page_mid'>
   <view class='collection'>
     <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
-      <image src='../../images/collection_icon.png' style='width:80rpx;height:80rpx;'></image>
+      <image src='../../images/col.png' style='width:80rpx;height:80rpx;'></image>
     </view>
     <view class='detail' bindtap='into_collection'>
       <view class='font'>
         <text>我的收藏</text>
+         <view style='width:80rpx;height:80rpx;position:absolute;right:-70rpx;top:0'>></view>
       </view>
-      <view style='width:80rpx;height:80rpx;margin-left:10rpx;background:url(../../images/section_icon.png) no-repeat;background-size:80rpx 80rpx;'></view>
+     
+    </view>
+  </view>
+
+
+  <view class='test'>
+    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
+      <image src='../../images/test_icon.png' style='width:80rpx;height:80rpx;'></image>
+    </view>
+    <view class='detail' bindtap='into_test'>
+      <view class='font'>
+        <text>章节测试</text>
+         <view style='width:80rpx;height:80rpx;position:absolute;right:-70rpx;top:0'>></view>
+      </view>
     </view>
   </view>
 </view>
