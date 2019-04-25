@@ -185,8 +185,8 @@ exports.main = async (event, context) => {
         })
           .update({
             data: {
-              chapter_11: _.inc(3.1),
-              progress: _.inc(0.252)
+              chapter_11: _.inc(3.2),
+              progress: _.inc(0.259)
             }
           })
       } catch (e) {

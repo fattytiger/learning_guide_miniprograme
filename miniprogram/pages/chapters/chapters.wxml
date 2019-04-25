@@ -64,7 +64,7 @@
                 <text>{{item.chapter_name}}</text>
               </view>
               <view class='progress_count'>
-                <text>完成：{{progress[index]>=100?100:(progress[index]*10/10)}}%</text>
+                <text>完成：{{progress[index]>=100?100:progress[index]}}%</text>
               </view>
               <view class='progress_warper'>
                 <progress  percent='{{progress[index]}}' border-radius='20rpx' stroke-width='15rpx'></progress>

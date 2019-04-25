@@ -1,6 +1,7 @@
 // miniprogram/pages/chapter_test/chapter_test.js
 import animation from '../../utils/animation.js'
 const db = wx.cloud.database()
+const app = getApp()
 Page({
   ...animation.test_animation,
   data: {
@@ -31,7 +32,7 @@ Page({
               page_list: res.data
             })
             db.collection('counters').where({
-              _openid: 'oVBvW5TJLTtt84EHlZZhb21RudnI'
+              _openid: app.globalData.openid
             }).get({
               success: res => {
                 this.setData({
@@ -50,23 +51,28 @@ Page({
     })
   },
   onShow: function () {
-    db.collection('chapter_test').get({
-      success: res => {
-        this.setData({
-          page_list: res.data
-        })
-        db.collection('counters').where({
-          _openid: 'oVBvW5TJLTtt84EHlZZhb21RudnI'
-        }).get({
+    wx.showLoading({
+      title: '请稍后',
+      success:res => {
+        db.collection('chapter_test').get({
           success: res => {
             this.setData({
-              test_chapter: res.data[0].test_chapter
+              page_list: res.data
             })
-            setTimeout(function () {
-              wx.hideLoading()
+            db.collection('counters').where({
+              _openid: app.globalData.openid
+            }).get({
+              success: res => {
+                this.setData({
+                  test_chapter: res.data[0].test_chapter
+                })
+                setTimeout(function () {
+                  wx.hideLoading()
+                })
+              }, fail: err => {
+                console.log(err)
+              }
             })
-          }, fail: err => {
-            console.log(err)
           }
         })
       }

@@ -91,9 +91,18 @@ export default {
         return 3
       } else if (pre > 68 && pre <= 85) {
         return 4
-      } else if (pre > 85 && pre <= 100) {
+      } else if (pre > 85) {
         return 5
       }
+    },
+    badage_progress(arr) {
+      arr[0] < 17 ? arr.splice(0, 1, (arr[0] / 17) * 100) : arr.splice(0, 1, 100)
+      arr[1] < 34 ? arr.splice(1, 1, (arr[1] / 34) * 100) : arr.splice(1, 1, 100)
+      arr[2] < 51 ? arr.splice(2, 1, (arr[2] / 51) * 100) : arr.splice(2, 1, 100)
+      arr[3] < 68 ? arr.splice(3, 1, (arr[3] / 68) * 100) : arr.splice(3, 1, 100)
+      arr[4] < 85 ? arr.splice(4, 1, (arr[4] / 85) * 100) : arr.splice(4, 1, 100)
+      arr[5] < 100 ? arr.splice(5, 1, (arr[5] / 100) * 100) : arr.splice(5, 1, 100)
+      return arr
     }
   }
 }

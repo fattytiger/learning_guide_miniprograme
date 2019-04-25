@@ -9,13 +9,14 @@
     "pages/collections/collections",
     "pages/chapter_test/chapter_test",
     "pages/question_detail/question_detail",
-    "pages/lunbo_detail/lunbo_detail"
+    "pages/lunbo_detail/lunbo_detail",
+    "pages/badage_wall/badage_wall"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "微信小程序学习指南",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "晓程序猿",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -26,7 +27,7 @@
     "list": [
       {
         "pagePath": "pages/chapters/chapters",
-        "text": "chpaters",
+        "text": "chapters",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index_select.png"
       },

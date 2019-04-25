@@ -1,0 +1,22 @@
+<view class='page_top'>勋章墙</view>
+<view class="page">
+  <view class='mypro'>
+  <text>我的进度：{{progress}}</text>
+  </view>
+  <view class="badage" wx:for="{{edage_image}}" wx:key="{{index}}">
+    <view class='icon'>
+      <image src='{{item}}'></image>
+    </view>
+    <view class='desc'>
+      <progress class='pro' 
+      backgroundColor='#fff'
+      active='true'
+      border-radius='10rpx'
+      percent='{{percent[index]}}'
+      ></progress>
+      <view class='font'>总进度达到{{percent_count[index]}}%</view>
+    </view>
+    <view class='mine' wx:if="{{percent[index]<100}}"><text style='color:rgb(178,32,144)'>未达成</text></view>
+    <view  class='mine' wx:if="{{percent[index]==100}}"><text style='color:rgb(0, 94, 160)'>已达成</text></view>
+  </view>
+</view>

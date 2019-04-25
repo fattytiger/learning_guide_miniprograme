@@ -24,6 +24,11 @@ Page({
       url: '../chapter_test/chapter_test',
     })
   },
+  badage_wall:function(){
+    wx.navigateTo({
+      url: '../badage_wall/badage_wall',
+    })
+  },
 
 
   onLoad: function (options) {

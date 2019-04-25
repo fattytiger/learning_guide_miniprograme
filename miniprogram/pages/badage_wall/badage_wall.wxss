@@ -1,0 +1,10 @@
+.page_top{position: fixed;left: 0;top: 0;height: 100rpx;width: 750rpx;line-height: 100rpx;background: #b02d79;font-size: 30rpx;color: #fff;text-align: center}
+.page{margin:20rpx;padding-top: 100rpx}
+.page>.mypro{height: 70rpx;width: 600rpx;margin: 10rpx auto;background: #78a6a6;color: #fff;font-size: 30rpx;line-height: 70rpx;text-align: center;border-radius: 10rpx}
+.badage{height: 200rpx;width:700rpx;margin: 50rpx auto;display: flex;flex-direction: row;background: #c1dfdd;border-radius: 20rpx;}
+.badage>.icon{height: 200rpx;width:200rpx;}
+.badage>.icon>image{height: 150rpx;width: 150rpx;margin:25rpx;}
+.badage>.desc{height: 200rpx;width: 400rpx;display: flex;flex-direction: column;}
+.badage>.desc>.pro{height: 100rpx;width: 350rpx;margin: 0 auto;}
+.badage>.desc>.font{height: 100rpx;width: 350rpx;margin: 0 auto;line-height: 100rpx;font-size:30rpx;color: rgb(0, 94, 160)}
+.badage>.mine{height: 200rpx;width: 100rpx;line-height: 200rpx;font-size: 30rpx;color:#fff }

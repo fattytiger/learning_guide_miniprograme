@@ -58,7 +58,6 @@ Page({
              chapter_id: this.data.chapter_id,
              delete_flag: false
            }, success: res => {
-             console.log(res)
              this.setData({
                collection_flag: true,
                collection_text: '已收藏',
@@ -90,7 +89,6 @@ Page({
               chapter_id: this.data.chapter_id
             },
             success: res => {
-              console.log(res)
               wx.cloud.callFunction({
                 name: 'update_section',
                 data: {
@@ -136,7 +134,7 @@ Page({
 
     wx.showLoading({
       title: '加载中',
-      mask:true,
+      mask:false,
       success:res=>{
         //获取数据库中的文章
         let mini_section_id = options.mini_section_id
@@ -150,7 +148,6 @@ Page({
           mini_section_id: mini_section_id
         }).get({
           success: res => {
-            console.log(res)
             let image_src = new Array()
             let image_flag = new Array()
             for (let i = 0; i < res.data[0].data.content.length; i++) {
@@ -167,6 +164,9 @@ Page({
               image_src: image_src,
               image_flag: image_flag,
               nodes: res.data[0].data.content
+            })
+            setTimeout(function(){
+              wx.hideLoading()
             })
             //判断用户是否阅读过该文章
             db.collection('counters').where({
