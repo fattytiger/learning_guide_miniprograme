@@ -20,7 +20,7 @@ Page({
       success:res => {
         let pro_count = res.data[0].progress
         this.setData({
-          progress: res.data[0].progress
+          progress: res.data[0].progress.toFixed(2)
         })
         let new_arr = new Array(6)
         for(let i=0;i<new_arr.length;i++){

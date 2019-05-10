@@ -1,0 +1,113 @@
+卷 新加卷 的文件夹 PATH 列表
+卷序列号为 F463-6BF9
+G:.
+│  app.js
+│  app.json
+│  app.wxss
+│  list.txt
+│  
+├─images
+│      book.png
+│      book_2.png
+│      book_3.png
+│      book_4.png
+│      chapter_name.png
+│      chpter_name.png
+│      col.png
+│      collection.png
+│      collectioned.png
+│      datyinji.png
+│      fail.png
+│      index.png
+│      index_select.png
+│      into_section.png
+│      logo.png
+│      mine.png
+│      mine_select.png
+│      score.png
+│      section_icon.png
+│      section_icon_reverse.png
+│      section_title.png
+│      shuqian.png
+│      shuqian_2.png
+│      start_bg1.png
+│      start_bg2.png
+│      start_bg3.png
+│      start_person.png
+│      test_icon.png
+│      title.png
+│      
+├─pages
+│  ├─articals
+│  │      articals.js
+│  │      articals.json
+│  │      articals.wxml
+│  │      articals.wxss
+│  │      
+│  ├─badage_wall
+│  │      badage_wall.js
+│  │      badage_wall.json
+│  │      badage_wall.wxml
+│  │      badage_wall.wxss
+│  │      
+│  ├─chapters
+│  │      chapters.js
+│  │      chapters.json
+│  │      chapters.wxml
+│  │      chapters.wxss
+│  │      
+│  ├─chapter_test
+│  │      chapter_test.js
+│  │      chapter_test.json
+│  │      chapter_test.wxml
+│  │      chapter_test.wxss
+│  │      
+│  ├─collections
+│  │      collections.js
+│  │      collections.json
+│  │      collections.wxml
+│  │      collections.wxss
+│  │      
+│  ├─lunbo_detail
+│  │      lunbo_detail.js
+│  │      lunbo_detail.json
+│  │      lunbo_detail.wxml
+│  │      lunbo_detail.wxss
+│  │      
+│  ├─question_detail
+│  │      question_detail.js
+│  │      question_detail.json
+│  │      question_detail.wxml
+│  │      question_detail.wxss
+│  │      
+│  ├─sections
+│  │      sections.js
+│  │      sections.json
+│  │      sections.wxml
+│  │      sections.wxss
+│  │      
+│  ├─start
+│  │      start.js
+│  │      start.json
+│  │      start.wxml
+│  │      start.wxss
+│  │      
+│  ├─test
+│  │      test.js
+│  │      test.json
+│  │      test.wxml
+│  │      test.wxss
+│  │      
+│  └─user_achievement
+│          user_achievement.js
+│          user_achievement.json
+│          user_achievement.wxml
+│          user_achievement.wxss
+│          
+├─style
+│      guide.wxss
+│      
+└─utils
+        animation.js
+        utils.js
+        

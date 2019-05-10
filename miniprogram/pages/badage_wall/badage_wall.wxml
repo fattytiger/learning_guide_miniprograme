@@ -1,7 +1,7 @@
 <view class='page_top'>勋章墙</view>
 <view class="page">
   <view class='mypro'>
-  <text>我的进度：{{progress}}</text>
+  <text>我的进度：{{(progress*10)/10}}%</text>
   </view>
   <view class="badage" wx:for="{{edage_image}}" wx:key="{{index}}">
     <view class='icon'>

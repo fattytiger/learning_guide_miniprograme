@@ -29,6 +29,11 @@ Page({
       url: '../badage_wall/badage_wall',
     })
   },
+  about_us:function(){
+    wx.navigateTo({
+      url: '../about_us/about_us',
+    })
+  },
 
 
   onLoad: function (options) {

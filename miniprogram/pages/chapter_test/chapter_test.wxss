@@ -19,3 +19,4 @@
 .page_list>.item>.item_doc button{position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;height: 60rpx;width: 130rpx;color: #000;font-size: 20rpx;line-height: 60rpx}
 .completed{background: #8bb85b;color: #fff}
 .complete{background: #e06a22;color: #fff}
+.score{color: #0f0}

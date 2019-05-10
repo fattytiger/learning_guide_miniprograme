@@ -1,0 +1,8 @@
+.page{margin: 50rpx}
+.team{font-size: 50rpx;font-weight: bold;height: 80rpx;line-height: 80rpx;margin:50rpx 0;}
+.mates{height: 200rpx;width: 100%;display: flex;flex-direction: row;margin: 30rpx 0;border-bottom: 1rpx solid #eee;}
+.mates>.avatar{height: 150rpx;width: 150rpx;margin: 25rpx;}
+.mates>.avatar>image{height: 150rpx;width: 150rpx;border-radius: 50%}
+.mates>.des{height: 120rpx;width:400rpx;margin: 40rpx 0 40rpx 50rpx;}
+.mates>.des>.name{height: 60rpx;font-size: 40rpx;font-weight: bold;line-height: 60rpx;}
+.mates>.des>.position{height: 60rpx;font-size: 30rpx;line-height: 60rpx;text-indent: 1em}

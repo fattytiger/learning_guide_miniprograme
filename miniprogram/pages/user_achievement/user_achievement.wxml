@@ -1,8 +1,8 @@
 <view class="page_top">
-  <view class='user_icon' >
+  <view class='user_icon'>
     <image src='{{userInfo.avatarUrl}}' animation='{{user_icon}}'></image>
   </view>
-  <view class='user_name' >
+  <view class='user_name'>
     <text>{{userInfo.nickName}}</text>
   </view>
   <view class='user_get'>
@@ -22,29 +22,39 @@
   </view>
 </view>
 <view class='page_mid'>
-  <view class='collection'>
+  <view class='test'>
     <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
       <image src='../../images/col.png' style='width:80rpx;height:80rpx;'></image>
     </view>
     <view class='detail' bindtap='into_collection'>
-      <view class='font'>
-        <text>我的收藏</text>
-         <view style='width:80rpx;height:80rpx;position:absolute;right:-70rpx;top:0'>></view>
-      </view>
-     
+      <button  bindtap='into_collection'>我的收藏</button>
     </view>
   </view>
 
 
-  <view class='test'>
-    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
-      <image src='../../images/test_icon.png' style='width:80rpx;height:80rpx;'></image>
+  <view class=' test '>
+    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
+      <image src='../../images/test_icon.png ' style='width:80rpx;height:80rpx; '></image>
     </view>
-    <view class='detail' bindtap='into_test'>
-      <view class='font'>
-        <text>章节测试</text>
-         <view style='width:80rpx;height:80rpx;position:absolute;right:-70rpx;top:0'>></view>
-      </view>
+    <view class='detail '>
+      <button bindtap='into_test'>章节测试</button>
+    </view>
+  </view>
+
+  <view class=' test '>
+    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
+      <image src='../../images/connect.png ' style='width:80rpx;height:80rpx; '></image>
+    </view>
+    <view class='detail '>
+        <button  open-type='feedback '>意见与反馈</button>
+    </view>
+  </view>
+  <view class='test '>
+    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
+      <image src='../../images/about_us.png ' style='width:80rpx;height:80rpx; '></image>
+    </view>
+    <view class='detail'>
+      <button bindtap='about_us'>关于我们</button>
     </view>
   </view>
 </view>

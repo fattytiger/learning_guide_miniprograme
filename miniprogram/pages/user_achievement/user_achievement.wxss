@@ -11,11 +11,8 @@
 .page_top>.user_get>.font_two{height: 100rpx;width:100rpx;font-size: 25rpx;position: absolute;left: 50rpx;top: 150rpx; line-height: 50rpx;color: #fff;}
 .page_top>.user_get>.font_two text{display: inline-block;line-height: 40rpx;}
 .page_top>.user_get>.font_two text:nth-of-type(2){color: #fff}
-.page_mid{height: 400rpx;background: #587692;margin-top: 50rpx;}
-.page_mid>.collection{height:100rpx;width: 750rpx;display: flex;flex-direction: row}
-.page_mid>.collection>.detail{height:80rpx;width: 600rpx;border-bottom: 1rpx solid #fff;color:#fff ;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;display: flex;flex-direction: row;text-indent: 2em}
-.page_mid>.collection>.detail>.font{height: 80rpx;width: 500rpx;line-height: 80rpx;position: relative}
+.page_mid{margin-top: 50rpx;}
 
-.page_mid>.test{height: 100rpx;width: 750rpx;display: flex;flex-direction: row}
-.page_mid>.test>.detail{height:80rpx;width: 600rpx;border-bottom: 1rpx solid #fff;color:#fff ;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;display: flex;flex-direction: row;text-indent: 2em}
-.page_mid>.test>.detail>.font{height: 80rpx;width: 500rpx;line-height: 80rpx;position: relative}
+.page_mid>.test{height: 100rpx;width: 750rpx;display: flex;flex-direction: row;margin: 20rpx 0;}
+.page_mid>.test>.detail{height:80rpx;width: 600rpx;color:#fff ;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;display: flex;flex-direction: row;text-indent: 2em}
+.page_mid>.test>.detail>button{height: 80rpx;width: 500rpx;line-height: 80rpx;position: relative;font-size: 30rpx;}

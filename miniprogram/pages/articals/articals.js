@@ -20,7 +20,7 @@ Page({
     flag_text: '阅读',
     image_src:[],
     image_flag:[],
-    nodes:''
+    mini_section_name:''
   },
   //图片预览功能
   preview_image:function(e){
@@ -29,7 +29,6 @@ Page({
     wx.previewImage({
       urls: [this.data.image_src[index]],
       success:res => {
-        console.log('yes')
       }
     })
   },
@@ -139,7 +138,7 @@ Page({
         //获取数据库中的文章
         let mini_section_id = options.mini_section_id
         this.setData({
-          template: options.template,
+          // template: options.template,
           open_id: app.globalData.openid,
           chapter_id: options.chapter_id,
           mini_section_id: mini_section_id
@@ -160,10 +159,10 @@ Page({
               }
             }
             this.setData({
-              page_data: res.data[0],
+              page_data: res.data[0].data,
+              mini_section_name:res.data[0].mini_section_name,
               image_src: image_src,
-              image_flag: image_flag,
-              nodes: res.data[0].data.content
+              image_flag: image_flag
             })
             setTimeout(function(){
               wx.hideLoading()

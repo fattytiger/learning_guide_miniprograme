@@ -10,7 +10,8 @@
     "pages/chapter_test/chapter_test",
     "pages/question_detail/question_detail",
     "pages/lunbo_detail/lunbo_detail",
-    "pages/badage_wall/badage_wall"
+    "pages/badage_wall/badage_wall",
+    "pages/about_us/about_us"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

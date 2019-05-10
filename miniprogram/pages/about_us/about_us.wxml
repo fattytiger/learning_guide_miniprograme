@@ -1,0 +1,26 @@
+<view class='page'>
+  <view class='team'>
+    我们的团队：皖江不下雨
+  </view>
+  <view wx:for="{{name}}" wx:key="{{index}}" class='mates'>
+    <view class='avatar'>
+      <image src='{{avatar[index]}}'></image>
+    </view>
+    <view class='des'>
+      <view class='name'>{{item}}</view>
+      <view class='position'>{{position[index]}}</view>
+    </view>
+  </view>
+  <view class='team'>
+    特别鸣谢
+  </view>
+  <view  class='mates'>
+    <view class='avatar'>
+      <image src='../../images/zhouwenjie.png'></image>
+    </view>
+    <view class='des'>
+      <view class='name'>周文洁</view>
+      <view class='position'>指导老师</view>
+    </view>
+  </view>
+</view>
