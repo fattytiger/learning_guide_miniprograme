@@ -25,5 +25,13 @@
 .page_mid .item>.progress_warper progress{margin-top: 20rpx;}
 ::-webkit-scrollbar{width: 0;height: 0;color: transparent}
 
+.element:nth-child(odd){height: 300rpx;width: 300rpx;margin: 100rpx 0 0 50rpx;box-sizing: border-box;border: 1rpx solid #a7e2f2;border-radius: 25rpx;background: rgb(83, 178, 193);color: #fff; box-shadow: 10px 10px 5px rgb(206,229,227);}
+.title{line-height: 50rpx;font-size: 30rpx;margin:25rpx;text-align: center}
+.pro{width: 250rpx;margin:30rpx 25rpx}
+.pro_font{width: 250rpx;margin: 25rpx;font-size: 25rpx;height: 100rpx;overflow: hidden;}
+.element:nth-child(even){height: 300rpx;width: 300rpx;position: absolute;left:400rpx;margin-top:-150rpx;box-sizing: border-box;border: 1rpx solid #a7e2f2;border-radius: 25rpx;background: rgb(83, 178, 193);color: #fff;box-shadow: 10px 10px 5px rgb(206,229,227);}
+
+.fill{height:50rpx;width: 100%;margin-top: 150rpx;}
+
 
 

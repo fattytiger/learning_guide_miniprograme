@@ -1,6 +1,12 @@
-<view class='content_image'>
-  <image src="{{image}}"></image>
-</view>
-<view class='detail'>
-  <text>{{content}}</text>
+<view class="page">
+  <view class='title'>{{title}}</view>
+  <view class='banner'>
+    <image src='{{banner}}'></image>
+  </view>
+  <block wx:for="{{content}}" wx:key="{{index}}">
+    <view class='content'>
+      <view class='{{item.class}}' wx:if="{{item.font}}">{{item.font}}</view>
+      <view class='content_image' wx:if="{{item.image}}">{{item.image}}</view>
+    </view>
+  </block>
 </view>

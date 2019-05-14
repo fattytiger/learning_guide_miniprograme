@@ -6,8 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    image:'',
-    content:''
+    content:'',
+    title:'',
+    banner:''
   },
 
   /**
@@ -22,8 +23,9 @@ Page({
         }).get({
           success: res => {
             this.setData({
-              content: res.data[0].content,
-              image: res.data[0].image
+              content:res.data[0].content,
+              title:res.data[0].title,
+              banner:res.data[0].banner
             })
             setTimeout(function(){
               wx.hideLoading()

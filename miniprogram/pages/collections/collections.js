@@ -47,42 +47,38 @@ Page({
     })
   },
 
-  onLoad: function(options) {
-
+  onLoad: function() {
+    
   },
   onShow: function() {
-   wx.showLoading({
-     title: '请稍等',
-     mask:true,
-     success:res => {
-       db.collection('user_collections').where({
-         _openid: app.globalData.open_id
-       }).get({
-         success: res => {
-           if (res.data.length == 0) {
-             this.setData({
-               showTips: true
-             })
-             setTimeout(function () {
-               wx.hideLoading()
-             })
-           } else if (res.data.length > 0) {
-             this.setData({
-               showTips: false,
-               collection: res.data
-             })
-             setTimeout(function () {
-               wx.hideLoading()
-             })
-           }
-
-         }
-       })
-     }
-   })
-  },
-  onPullDownRefresh: function() {
-    this.onShow()
+    wx.showLoading({
+      title: '请稍等',
+      mask: true,
+      success: res => {
+        db.collection('user_collections').where({
+          _openid: app.globalData.open_id
+        }).get({
+          success: res => {
+            if (res.data.length != 0) {
+              this.setData({
+                showTips: true,
+                collection: res.data
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+              })
+            } else {
+              this.setData({
+                showTips:false
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+              })
+            }
+          }
+        })
+      }
+    })
   },
   onShareAppMessage: function() {
 

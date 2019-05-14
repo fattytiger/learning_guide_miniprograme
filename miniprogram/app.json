@@ -28,13 +28,13 @@
     "list": [
       {
         "pagePath": "pages/chapters/chapters",
-        "text": "chapters",
+        "text": "index",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index_select.png"
       },
       {
         "pagePath": "pages/user_achievement/user_achievement",
-        "text": "achievement",
+        "text": "mine",
         "iconPath": "images/mine.png",
         "selectedIconPath": "images/mine_select.png"
       }

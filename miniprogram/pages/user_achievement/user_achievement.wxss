@@ -14,5 +14,10 @@
 .page_mid{margin-top: 50rpx;}
 
 .page_mid>.test{height: 100rpx;width: 750rpx;display: flex;flex-direction: row;margin: 20rpx 0;}
-.page_mid>.test>.detail{height:80rpx;width: 600rpx;color:#fff ;font-size:25rpx;margin-top: 10rpx;margin-left: 20rpx;display: flex;flex-direction: row;text-indent: 2em}
-.page_mid>.test>.detail>button{height: 80rpx;width: 500rpx;line-height: 80rpx;position: relative;font-size: 30rpx;}
+.page_mid>.test>.mine_icon{height:80rpx;width:80rpx;margin-top: 10rpx;margin-left:30rpx;}
+.page_mid>.test>.detail{height:80rpx;width: 600rpx;font-size:25rpx;}
+.page_mid>.test>.detail> button::after{border: none}
+.page_mid>.test>.detail> button{height: 80rpx;width: 500rpx;line-height: 80rpx;font-size: 30rpx;border-radius: 0;text-align: left;background: #fff; border-bottom: 1rpx solid #eee;display: flex;flex-direction: row;padding-right: 0}
+.page_mid>.test>.detail> button>.font{width: 420rpx;}
+.page_mid>.test>.detail> button>.icon{height: 80rpx;width: 80rpx;margin-right: 0}
+.page_mid>.test>.detail> button>.icon>image{height: 50rpx;width: 50rpx;margin: 15rpx}

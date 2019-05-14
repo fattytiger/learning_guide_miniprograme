@@ -1,4 +1,9 @@
-.content_image{height: 500rpx;width: 750rpx;position: relative}
-.content_image>image{height: 400rpx;width: 400rpx;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
-.detail{width: 750rpx}
-.detail{margin: 20rpx auto;width: 650rpx;font: 30rpx;color: #ccc;text-align: center}
+.page{margin: 20rpx}
+.title{height: 80rpx;line-height: 80rpx;text-indent: 1em;font-weight: bold;font-size: 50rpx;color: #1e83b3}
+.banner{height: 337rpx;width:600rpx;margin: 50rpx auto;}
+.banner>image{height: 337rpx;width:600rpx;}
+.content{line-height: 50rpx;font-size: 30rpx;margin: 25rpx;text-indent: 2em}
+.content>.content_image{height: 337rpx;width:600rpx;margin: 50rpx auto;}
+.content>.content_image>image{height: 337rpx;width: 600rpx;}
+.weight{font-weight: bold;font-size: 40rpx;text-indent: 0em;line-height: 80rpx;color: #39a9de}
+.tip{font-weight: bold;font-size: 35rpx;text-indent: 1em;line-height: 70rpx;color: #39a9de}

@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,21 @@
 					"id": -1,
 					"name": "about_us",
 					"pathName": "pages/about_us/about_us",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "lunbo",
+					"pathName": "pages/lunbo_detail/lunbo_detail",
+					"query": "id=lunbo_03",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/user_achievement/user_achievement",
+					"query": "id=lunbo_03",
 					"scene": null
 				}
 			]

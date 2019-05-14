@@ -10,67 +10,98 @@ Page({
    */
   data: {
     template: "",
-    page_data:{},
+    page_data: {},
     flag: false,
-    collection_flag:false,
-    collection_text:'收藏',
+    collection_flag: false,
+    collection_text: '收藏',
     open_id: '',
     chapter_id: '',
     mini_section_id: '',
     flag_text: '阅读',
-    image_src:[],
-    image_flag:[],
-    mini_section_name:''
+    image_src: [],
+    image_flag: [],
+    mini_section_name: ''
   },
   //图片预览功能
-  preview_image:function(e){
+  preview_image: function(e) {
     let index = e.currentTarget.dataset.image_index
     console.log(e.currentTarget.dataset.image_index)
     wx.previewImage({
       urls: [this.data.image_src[index]],
-      success:res => {
-      }
+      success: res => {}
     })
   },
-
-
   //收藏功能
   collection: function() {
     if (this.data.collection_flag == true) {
-      wx.showToast({
-        title: '收藏过了',
-        duration: 2000
+
+      wx.showModal({
+        title: '删除该收藏',
+        content: '你确定要删除该收藏吗，删除过后可能无法恢复',
+        showCancel: true,
+        cancelText: '我再想想',
+        confirmText: '我心如铁',
+        success: res => {
+          if (res.confirm) {
+            wx.showLoading({
+              title: '请稍等',
+              mask: true,
+              success: res => {
+                wx.cloud.callFunction({
+                  name: 'remove_collection',
+                  data: {
+                    target: this.data.mini_section_id
+                  },
+                  success: res => {
+                    this.setData({
+                      collection_flag: false,
+                      collection_text: '取消收藏',
+                    })
+                    setTimeout(function() {
+                      wx.hideLoading()
+                    })
+                  }
+                })
+              }
+            })
+          } else if (res.cancel) {
+
+          }
+        }
+      })
+
+    }
+    if (this.data.collection_flag == false) {
+      wx.showLoading({
+        title: '正在收藏',
+        mask: true,
+        success: res => {
+          wx.cloud.callFunction({
+            name: 'collections_add',
+            data: {
+              open_id: this.data.open_id,
+              mini_section_id: this.data.mini_section_id,
+              mini_section_name: this.data.mini_section_name,
+              template: this.data.template,
+              chapter_id: this.data.chapter_id,
+              delete_flag: false
+            },
+            success: res => {
+              this.setData({
+                collection_flag: true,
+                collection_text: '已收藏',
+              })
+              setTimeout(function() {
+                wx.hideLoading()
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+          })
+        }
       })
     }
-   if(this.data.collection_flag==false){
-     wx.showLoading({
-       title: '正在收藏',
-       mask:true,
-       success:res => {
-         wx.cloud.callFunction({
-           name: 'collections_add',
-           data: {
-             open_id: this.data.open_id,
-             mini_section_id: this.data.mini_section_id,
-             mini_section_name: this.data.page_data.mini_section_name,
-             template: this.data.template,
-             chapter_id: this.data.chapter_id,
-             delete_flag: false
-           }, success: res => {
-             this.setData({
-               collection_flag: true,
-               collection_text: '已收藏',
-             })
-             setTimeout(function(){
-              wx.hideLoading()
-             })
-           }, fail: err => {
-             console.log(err)
-           }
-         })
-       }
-     })
-   }
   },
 
 
@@ -79,8 +110,8 @@ Page({
     if (this.data.flag == false) {
       wx.showLoading({
         title: '正在请求',
-        mask:true,
-        success:res => {
+        mask: true,
+        success: res => {
           wx.cloud.callFunction({
             name: "updata_pro",
             data: {
@@ -99,7 +130,7 @@ Page({
                     flag: true,
                     flag_text: '已阅读'
                   })
-                  setTimeout(function(){
+                  setTimeout(function() {
                     wx.hideLoading()
                   })
                 },
@@ -114,27 +145,23 @@ Page({
           })
         }
       })
-    } 
+    }
     if (this.data.flag == true) {
       wx.showToast({
         title: '读过了',
         duration: 2000
       })
     }
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    
-
     wx.showLoading({
       title: '加载中',
-      mask:false,
-      success:res=>{
+      mask: false,
+      success: res => {
         //获取数据库中的文章
         let mini_section_id = options.mini_section_id
         this.setData({
@@ -158,13 +185,14 @@ Page({
                 image_flag[i] = 'no'
               }
             }
+            console.log(res.data[0])
             this.setData({
               page_data: res.data[0].data,
-              mini_section_name:res.data[0].mini_section_name,
+              mini_section_name: res.data[0].mini_section_name,
               image_src: image_src,
               image_flag: image_flag
             })
-            setTimeout(function(){
+            setTimeout(function() {
               wx.hideLoading()
             })
             //判断用户是否阅读过该文章
@@ -182,7 +210,7 @@ Page({
                     break
                   }
                 }
-                setTimeout(function () {
+                setTimeout(function() {
                   wx.hideLoading()
                 })
               }
@@ -204,16 +232,11 @@ Page({
                 }
               }
             })
-            
+
           }
         })
       }
     })
-    
-
-
-    
-
   },
   onShow: function() {
 

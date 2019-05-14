@@ -14,7 +14,8 @@ Page({
     inputShow:false,
     lunbo_data:{},
     input_show:false,
-    input_val:''
+    input_val:'',
+    test:[1,2,3,4,5,6,7,8]
   },
    //搜索
   show_input:function(){
@@ -108,20 +109,18 @@ Page({
       success: res => {
         //如果存在则将数据写入progress
         let progress_arr = new Array()
-        progress_arr[0] = res.data[0].chapter_01
-        progress_arr[1] = res.data[0].chapter_02
-        progress_arr[2] = res.data[0].chapter_03
-        progress_arr[3] = res.data[0].chapter_04
-        progress_arr[4] = res.data[0].chapter_05
-        progress_arr[5] = res.data[0].chapter_06
-        progress_arr[6] = res.data[0].chapter_07
-        progress_arr[7] = res.data[0].chapter_08
-        progress_arr[8] = res.data[0].chapter_09
-        progress_arr[9] = res.data[0].chapter_10
-        progress_arr[10] = res.data[0].chapter_11
-        progress_arr[11] = res.data[0].chapter_12
-        progress_arr[12] = res.data[0].chapter_13
-        progress_arr[13] = res.data[0].chapter_14
+        progress_arr[0] = res.data[0].chapter_01.toFixed(1)
+        progress_arr[1] = res.data[0].chapter_02.toFixed(1)
+        progress_arr[2] = res.data[0].chapter_03.toFixed(1)
+        progress_arr[3] = res.data[0].chapter_04.toFixed(1)
+        progress_arr[4] = res.data[0].chapter_05.toFixed(1)
+        progress_arr[5] = res.data[0].chapter_06.toFixed(1)
+        progress_arr[6] = res.data[0].chapter_07.toFixed(1)
+        progress_arr[7] = res.data[0].chapter_08.toFixed(1)
+        progress_arr[8] = res.data[0].chapter_09.toFixed(1)
+        progress_arr[9] = res.data[0].chapter_10.toFixed(1)
+        progress_arr[10] = res.data[0].chapter_11.toFixed(1)
+        progress_arr[11] = res.data[0].chapter_12.toFixed(1)
         this.setData({
           progress: progress_arr
         })
@@ -154,8 +153,6 @@ Page({
         progress_arr[9] = res.data[0].chapter_10
         progress_arr[10] = res.data[0].chapter_11
         progress_arr[11] = res.data[0].chapter_12
-        progress_arr[12] = res.data[0].chapter_13
-        progress_arr[13] = res.data[0].chapter_14
         this.setData({
           progress: progress_arr
         })

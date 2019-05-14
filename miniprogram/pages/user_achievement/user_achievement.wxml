@@ -23,38 +23,53 @@
 </view>
 <view class='page_mid'>
   <view class='test'>
-    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx;'>
-      <image src='../../images/col.png' style='width:80rpx;height:80rpx;'></image>
+    <view class='mine_icon'>
+      <image src='../../images/col.png' style='width:50rpx;height:50rpx;margin:15rpx;'></image>
     </view>
     <view class='detail' bindtap='into_collection'>
-      <button  bindtap='into_collection'>我的收藏</button>
+      <button>
+      <view class='font'>我的收藏</view>
+        <view class='icon'>
+          <image src='../../images/section_icon_02.png'></image>
+        </view></button>
     </view>
   </view>
 
 
   <view class=' test '>
-    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
-      <image src='../../images/test_icon.png ' style='width:80rpx;height:80rpx; '></image>
+    <view class='mine_icon'>
+      <image src='../../images/test_icon.png ' style='width:50rpx;height:50rpx;margin:15rpx;'></image>
     </view>
     <view class='detail '>
-      <button bindtap='into_test'>章节测试</button>
+      <button bindtap='into_test'><view class='font'>章节测试</view>
+        <view class='icon'>
+          <image src='../../images/section_icon_02.png'></image>
+        </view></button>
     </view>
   </view>
 
   <view class=' test '>
-    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
-      <image src='../../images/connect.png ' style='width:80rpx;height:80rpx; '></image>
+    <view class='mine_icon'>
+      <image src='../../images/connect.png ' style='width:50rpx;height:50rpx;margin:15rpx;'></image>
     </view>
     <view class='detail '>
-        <button  open-type='feedback '>意见与反馈</button>
+        <button  open-type='feedback'><view class='font'>意见与反馈</view>
+        <view class='icon'>
+          <image src='../../images/section_icon_02.png'></image>
+        </view></button>
     </view>
   </view>
   <view class='test '>
-    <view style='height:80rpx;width:80rpx;margin-top: 10rpx;margin-left: 20rpx; '>
-      <image src='../../images/about_us.png ' style='width:80rpx;height:80rpx; '></image>
+    <view class='mine_icon'>
+      <image src='../../images/about_us.png ' style='width:50rpx;height:50rpx;margin:15rpx;'></image>
     </view>
     <view class='detail'>
-      <button bindtap='about_us'>关于我们</button>
+      <button bindtap='about_us'>
+        <view class='font'>关于我们</view>
+        <view class='icon'>
+          <image src='../../images/section_icon_02.png'></image>
+        </view>
+      </button>
     </view>
   </view>
 </view>
